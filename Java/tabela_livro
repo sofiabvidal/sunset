@@ -1,0 +1,11 @@
+create table livro (
+	ISBN serial not null,
+	dtaPublicacao int,
+	idioma varchar(30),
+	tituloLivro varchar(30),
+	localPublicacao varchar(30),
+	sinopse varchar(300),
+	temaLivro varchar(30),
+	editoraLivro(30),
+	constraint pk_ISBN primary key(ISBN)
+);

@@ -1,0 +1,8 @@
+create table autor (
+	idAutor serial not null,
+	nome varchar(30),
+	idade int,
+	tempoCarreira int,
+	constraint pk_autor primary key (idAutor),
+	constraint fk_livro_autor foreign key (ISBN) references livro (ISBN)
+);
