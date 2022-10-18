@@ -1,0 +1,15 @@
+create table livroAutor ( 
+	idAutor serial,
+	ISBN serial, 
+	idade int,
+	nome varchar(30),
+	tempoCarreira int,
+	sinopse varchar(150),
+	idioma varchar(30),
+	dtaPubli int,
+	tituloLivro varchar(30),
+	temaLivro varchar(30),
+	localPubli varchar(30),
+	editoraLivro varchar(30),
+	constraint pk_idAutor primary key(idAutor)
+);

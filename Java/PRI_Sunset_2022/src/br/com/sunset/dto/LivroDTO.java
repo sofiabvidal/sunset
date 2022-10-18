@@ -1,7 +1,7 @@
 package br.com.sunset.dto;
 public class LivroDTO {
     
-    private int ISBN, dtaPubli;
+    private int ISBN, dtaPubli, idAutor;
     private String tituloLivro, temaLivro, localPubli, editoraLivro, sinopse, idioma;
 
     public int getISBN() {
@@ -18,6 +18,14 @@ public class LivroDTO {
 
     public void setDtaPubli(int dtaPubli) {
         this.dtaPubli = dtaPubli;
+    }
+    
+      public int getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(int idAutor) {
+        this.idAutor= idAutor;
     }
 
     public String getTituloLivro() {

@@ -15,7 +15,7 @@ public class LivroDAO {
             stmt = ConexaoDAO.con.createStatement();
            String comando = "Insert into Livro (ISBN, dtaPubli, "
                     + "tituloLivro, temaLivro, localPubli, "
-                    + "editoraLivro, sinopse, idioma) values ("
+                    + "editoraLivro, sinopse, idioma, idAutor) values ("
                     + "'" + livroDTO.getISBN() + "', "
                     + "'" + livroDTO.getDtaPubli() + "', "
                     + "'" + livroDTO.getTituloLivro() + "', "
@@ -23,7 +23,8 @@ public class LivroDAO {
                     + livroDTO.getLocalPubli() + ", "
                     + "'" + livroDTO.getEditoraLivro() + "', "
                     + "'" + livroDTO.getSinopse() + "', "
-                    + "'" + livroDTO.getIdioma() + "')";
+                    + "'" + livroDTO.getIdioma() + "', "
+                    + "'" + livroDTO.getIdAutor() + "')";
             System.out.println(comando);
             stmt.execute(comando.toLowerCase());
             ConexaoDAO.con.commit();
@@ -51,7 +52,8 @@ public class LivroDAO {
                     + "localPubli = " + livroDTO.getLocalPubli() + ", "
                     + "editoraLivro = '" + livroDTO.getEditoraLivro() + "', "
                     + "sinopse = '" + livroDTO.getSinopse() + "', "
-                    + "idioma = '" + livroDTO.getIdioma();
+                    + "idioma = '" + livroDTO.getIdioma() + "', "
+                    + "idAutor = '" + livroDTO.getIdAutor();
                    
             stmt.execute(comando.toLowerCase());
             ConexaoDAO.con.commit();
