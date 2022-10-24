@@ -1,6 +1,6 @@
 create table livroAutor ( 
-	idAutor serial,
-	ISBN serial, 
+	idAutor serial not null,
+	ISBN int not null, 
 	idade int,
 	nome varchar(30),
 	tempoCarreira int,

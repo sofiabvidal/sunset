@@ -1,5 +1,5 @@
 create table livro (
-	ISBN serial not null,
+	ISBN int not null,
 	dtaPublicacao int,
 	idioma varchar(30),
 	tituloLivro varchar(30),

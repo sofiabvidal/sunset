@@ -33,7 +33,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         idioma = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
+        temaLivro = new javax.swing.JPanel();
         romance = new javax.swing.JCheckBox();
         comedia = new javax.swing.JCheckBox();
         drama = new javax.swing.JCheckBox();
@@ -136,7 +136,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
 
         idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um idioma", "Português - BR", "Inglês", "Espanhol", "Francês", "Alemão", "Russo" }));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        temaLivro.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         romance.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         romance.setText("Romance");
@@ -156,34 +156,34 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         aventura.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         aventura.setText("Aventura");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout temaLivroLayout = new javax.swing.GroupLayout(temaLivro);
+        temaLivro.setLayout(temaLivroLayout);
+        temaLivroLayout.setHorizontalGroup(
+            temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(temaLivroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(romance)
                     .addComponent(terror))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(suspense)
                     .addComponent(drama))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(comedia)
                     .addComponent(aventura))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        temaLivroLayout.setVerticalGroup(
+            temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(temaLivroLayout.createSequentialGroup()
+                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(romance)
                     .addComponent(drama)
                     .addComponent(comedia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(terror)
                     .addComponent(suspense)
                     .addComponent(aventura)))
@@ -214,7 +214,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                             .addComponent(dtaPublicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)))
                     .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(temaLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -242,7 +242,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(temaLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -402,7 +402,6 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -410,6 +409,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox romance;
     private javax.swing.JTextArea sinopse;
     private javax.swing.JCheckBox suspense;
+    private javax.swing.JPanel temaLivro;
     private javax.swing.JCheckBox terror;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
