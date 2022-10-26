@@ -86,6 +86,39 @@ public class LivroDAO {
             ConexaoDAO.CloseDB();
         }
     }
-}
-  
 
+
+public ResultSet consultarLivro(LivroDTO livroDTO, int opcao) {
+        try {
+            ConexaoDAO.ConectDB();
+            stmt = ConexaoDAO.con.createStatement();
+            String comando = "";
+            
+             switch (opcao){
+                case 1:
+                    comando = "Select l.* "+
+                              "from Livro l "+
+                              "where tituloLivro like '" + livroDTO.getTituloLivro() + "%' " +
+                              "order by l.tituloLivro";
+                    
+                break;           
+
+                case 2:
+                    comando = "Select l.* "+
+                              "from Livro l " +
+                              "where l.ISBN = " + livroDTO.getISBN();
+                break;
+                case 3:
+                    comando = "Select l.ISBN, l.dtaPubli "+
+                              "from Livro l ";
+                break;
+            }
+            rs = stmt.executeQuery(comando.toLowerCase());
+            return rs;
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return rs;
+        }
+    }
+}

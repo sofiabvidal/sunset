@@ -53,11 +53,11 @@ public class LivroCTR {
         }
     }
 
-   /** public ResultSet consultarLivro(LivroDTO livroDTO, int opcao) {
+    public ResultSet consultarLivro(LivroDTO livroDTO, int opcao) {
         ResultSet rs = null;
         rs = livroDAO.consultarLivro(livroDTO, opcao);
         return rs;
-    }**/
+    }
 
     public void CloseDB() {
         ConexaoDAO.CloseDB();

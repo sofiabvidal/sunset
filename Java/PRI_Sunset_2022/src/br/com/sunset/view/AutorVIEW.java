@@ -1,10 +1,28 @@
 package br.com.sunset.view;
 
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import br.com.sunset.dto.AutorDTO;
+import br.com.sunset.ctr.AutorCTR;
 
 public class AutorVIEW extends javax.swing.JInternalFrame {
+     AutorDTO autorDTO = new AutorDTO(); 
+    AutorCTR autorCTR = new AutorCTR();
+    
+    ResultSet rs; 
+    int gravar_alterar; 
+    DefaultTableModel modelo_jtlConsultarAutor; 
+ 
     public AutorVIEW() {
         initComponents();
+        this.setSize(768, 465);
+        liberaCampos(false);
+        liberaBotoes(true, false, false, false, true);
+        modelo_jtlConsultarAutor = (DefaultTableModel) jtlConsultarAutor.getModel();
     }
     
     public void setPosicao() {
@@ -38,7 +56,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
         descricao = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        modelo_jtlConsultarAutor = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         consultarAutor = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
@@ -196,7 +214,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        modelo_jtlConsultarAutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -212,11 +230,16 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(modelo_jtlConsultarAutor);
 
         jLabel8.setText("Nome:");
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sunset/view/imagens/pesquisar.png"))); // NOI18N
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -253,6 +276,11 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sunset/view/imagens/novo.png"))); // NOI18N
         btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sunset/view/imagens/salvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -361,22 +389,185 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_idadeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+         if(verificaPreenchimentoGeral()){
+            if(gravar_alterar==1){
+                gravar();
+                gravar_alterar=0;
+            }
+            else{
+                if(gravar_alterar==2){
+                    alterar();
+                    preencheTabela(pesquisaAutor.getText().toLowerCase());
+                    gravar_alterar=0;
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Erro no Sistema!!!");
+                }
+            }
+            limpaCampos();
+            liberaCampos(false);
+            liberaBotoes(true, false, false, false, true);
+        }    
+    }                       
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
-        // TODO add your handling code here:
+        limpaCampos();
+        liberaCampos(false);
+        modelo_jtlConsultarAutor.setNumRows(0);
+        liberaBotoes(true, false, false, false, true);
+        gravar_alterar=0;
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        excluir();
+        limpaCampos();
+        liberaCampos(false);
+        liberaBotoes(true, false, false, false, true);
+        preencheTabela(pesquisaAutor.getText().toLowerCase());  
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        liberaCampos(true);
+        liberaBotoes(false, true, true, false, true);
+        gravar_alterar = 1;
+    }//GEN-LAST:event_btnNovoActionPerformed
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        preencheTabela(pesquisaAutor.getText());
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void gravar(){
+        try{
+            autorDTO.setNome(nome.getText());
+            autorDTO.setIdade(Integer.parseInt(idade.getText()));
+            autorDTO.setTempoCarreira(Integer.parseInt(tempoCarreira.getText()));
+            
+            JOptionPane.showMessageDialog(null,
+                    autorCTR.inserirAutor(autorDTO)
+            );
+        }
+        catch(Exception e){
+            System.out.println("Erro ao Gravar" + e.getMessage());
+        }
+    }
+
+    private void excluir(){
+       if(JOptionPane.showConfirmDialog(null, "Deseja Realmente excluir o Autor?","Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null,
+                    autorCTR.excluirAutor(carroDTO)
+            );
+       }
+    }
+
+    private void alterar(){
+        try{
+            autorDTO.setNome(nome.getText());
+            autorDTO.setIdade(Integer.parseInt(idade.getText()));
+            autorDTO.setTempoCarreira(Integer.parseInt(tempoCarreira.getText()));
+            
+     
+            JOptionPane.showMessageDialog(null,
+                    autorCTR.alterarAutor(autorDTO)
+            );
+        }
+        catch(Exception e){}
+    }
+
+    private void preencheTabela(String mar_car){
+        try{
+            modelo_jtlConsultarAutor.setNumRows(0);
+            autorDTO.setTituloLivro(tituloLivro);
+            rs = autorCTR.consultarAutor(autorDTO, 1); 
+            while(rs.next()){
+                 modelo_jtlConsultarAutor.addRow(new Object[]{
+                  rs.getString("idAutor"),
+                  rs.getString("tituloLivro"),
+                });
+            }        
+        }
+        catch(Exception erTab){
+            System.out.println("Erro SQL: "+erTab);
+        }  
+    }
+
+    private void preencheCampos(int idAutor){
+        try{
+            autorDTO.setIdAutor(idAutor);
+            rs = autorCTR.consultarAutor(autorDTO, 2);
+            if(rs.next()){
+                limpaCampos();
+                tituloLivro.setText(rs.getString("tituloLivro"));
+                idade.setText(rs.getString("idade"));
+                tempoCarreira.setText(rs.getString("tempoCarreira"));
+                gravar_alterar = 2;
+                liberaCampos(true);
+            }
+        }
+        catch(Exception erTab){
+            System.out.println("Erro SQL: "+erTab);
+        }  
+    }
+
+    private void liberaCampos(boolean a){
+        nome.setEnabled(a);
+        idade.setEnabled(a);
+        tempoCarreira.setEnabled(a);
+    }
+
+    private void limpaCampos(){
+        nome.setText("");
+        idade.setText("");
+        tempoCarreira.setText("");
+    }
+
+    private void liberaBotoes(boolean a, boolean b, boolean c, boolean d, boolean e){
+        btnNovo.setEnabled(a);
+        btnSalvar.setEnabled(b);
+        btnCancelar1.setEnabled(c);
+        btnExcluir.setEnabled(d);
+        btnSair.setEnabled(e);
+    }
+
+    private void verificaTamanho(JTextField jtextfield, int maximo) {                            
+        String tamanho = jtextfield.getText();
+        if(tamanho.length() >= maximo){
+              jtextfield.setText(jtextfield.getText().substring(0, maximo-1));
+        }
+    } 
+
+    private void verificaTamanho(JTextArea jtextarea, int maximo) {                            
+        String tamanho = jtextarea.getText();
+        if(tamanho.length() >= maximo){
+              jtextarea.setText(jtextarea.getText().substring(0, maximo-1));
+        }
+    }
+
+    private boolean verificaPreenchimentoGeral() {                            
+        if(nome.getText().equalsIgnoreCase("")){
+              JOptionPane.showMessageDialog(null, "O campo Nome deve ser preenchido");
+              nome.requestFocus();
+              return false;
+        }
+        else{
+            if(idade.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(null, "O campo Idade deve ser preenchido");
+                idade.requestFocus();
+                return false;
+            }
+            else{
+                if(tempoCarreira.getText().equalsIgnoreCase("")){
+                    JOptionPane.showMessageDialog(null, "O campo Tempo de Carreira deve ser preenchido");
+                    tempoCarreira.requestFocus();
+                    return false;
+                }
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox aventura;
     private javax.swing.JButton btnCancelar1;
@@ -405,11 +596,11 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable modelo_jtlConsultarAutor;
     private javax.swing.JTextField nome;
     private javax.swing.JCheckBox romance;
     private javax.swing.JCheckBox suspense;
     private javax.swing.JTextField tempoCarreira;
     private javax.swing.JCheckBox terror;
     // End of variables declaration//GEN-END:variables
-}
+        

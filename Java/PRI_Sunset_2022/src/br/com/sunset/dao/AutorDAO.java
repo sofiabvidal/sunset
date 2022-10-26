@@ -95,7 +95,7 @@ public class AutorDAO {
                 break;
                 case 3:
                     comando = "Select a.idAutor, a.idade "+
-                              "from Autor c ";
+                              "from Autor a ";
                 break;
             }
             rs = stmt.executeQuery(comando.toLowerCase());
