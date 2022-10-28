@@ -4,8 +4,6 @@ import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import br.com.sunset.dto.AutorDTO;
 import br.com.sunset.ctr.AutorCTR;
 
@@ -19,7 +17,6 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
  
     public AutorVIEW() {
         initComponents();
-        this.setSize(768, 465);
         liberaCampos(false);
         liberaBotoes(true, false, false, false, true);
         modelo_jtlConsultarAutor = (DefaultTableModel) jtlConsultarAutor.getModel();
@@ -41,22 +38,9 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
         idade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         tempoCarreira = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        idioma = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
-        romance = new javax.swing.JCheckBox();
-        comedia = new javax.swing.JCheckBox();
-        drama = new javax.swing.JCheckBox();
-        terror = new javax.swing.JCheckBox();
-        suspense = new javax.swing.JCheckBox();
-        aventura = new javax.swing.JCheckBox();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        descricao = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        modelo_jtlConsultarAutor = new javax.swing.JTable();
+        jtlConsultarAutor = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         consultarAutor = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
@@ -76,84 +60,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Idade:");
 
-        idade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idadeActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Tempo de Carreira:");
-
-        tempoCarreira.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tempoCarreiraActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Idioma:");
-
-        jLabel6.setText("Gênero:");
-
-        jLabel7.setText("Descrição:");
-
-        idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um idioma", "Português - BR", "Inglês", "Espanhol", "Francês", "Alemão", "Russo" }));
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        romance.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        romance.setText("Romance");
-
-        comedia.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        comedia.setText("Comédia");
-
-        drama.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        drama.setText("Drama");
-
-        terror.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        terror.setText("Terror");
-
-        suspense.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        suspense.setText("Suspense");
-
-        aventura.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        aventura.setText("Aventura");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(romance)
-                    .addComponent(terror))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(suspense)
-                    .addComponent(drama))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comedia)
-                    .addComponent(aventura))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(romance)
-                    .addComponent(drama)
-                    .addComponent(comedia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(terror)
-                    .addComponent(suspense)
-                    .addComponent(aventura)))
-        );
-
-        descricao.setColumns(20);
-        descricao.setRows(5);
-        jScrollPane2.setViewportView(descricao);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,9 +70,6 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
                     .addComponent(nome)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,10 +78,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tempoCarreira, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)))
-                    .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                            .addComponent(jLabel4))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,24 +98,12 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tempoCarreira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
-        modelo_jtlConsultarAutor.setModel(new javax.swing.table.DefaultTableModel(
+        jtlConsultarAutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -223,14 +112,19 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(modelo_jtlConsultarAutor);
+        jtlConsultarAutor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtlConsultarAutorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtlConsultarAutor);
 
         jLabel8.setText("Nome:");
 
@@ -268,8 +162,8 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                             .addComponent(jLabel8)))
                     .addComponent(btnConsultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -371,25 +265,17 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tempoCarreiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempoCarreiraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tempoCarreiraActionPerformed
-
-    private void idadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idadeActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-         if(verificaPreenchimentoGeral()){
+        if(verificaPreenchimentoGeral()){
             if(gravar_alterar==1){
                 gravar();
                 gravar_alterar=0;
@@ -397,7 +283,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
             else{
                 if(gravar_alterar==2){
                     alterar();
-                    preencheTabela(pesquisaAutor.getText().toLowerCase());
+                    preencheTabela(consultarAutor.getText());
                     gravar_alterar=0;
                 }
                 else{
@@ -407,8 +293,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
             limpaCampos();
             liberaCampos(false);
             liberaBotoes(true, false, false, false, true);
-        }    
-    }                       
+        }                           
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
@@ -424,7 +309,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
         limpaCampos();
         liberaCampos(false);
         liberaBotoes(true, false, false, false, true);
-        preencheTabela(pesquisaAutor.getText().toLowerCase());  
+        preencheTabela(consultarAutor.getText().toLowerCase());  
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -438,8 +323,13 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        preencheTabela(pesquisaAutor.getText());
+        preencheTabela(consultarAutor.getText());
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void jtlConsultarAutorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtlConsultarAutorMouseClicked
+        preencheCampos(Integer.parseInt(String.valueOf(jtlConsultarAutor.getValueAt(jtlConsultarAutor.getSelectedRow(), 0))));
+        liberaBotoes(false, true, true, true, true);
+    }//GEN-LAST:event_jtlConsultarAutorMouseClicked
 
     private void gravar(){
         try{
@@ -459,7 +349,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
     private void excluir(){
        if(JOptionPane.showConfirmDialog(null, "Deseja Realmente excluir o Autor?","Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(null,
-                    autorCTR.excluirAutor(carroDTO)
+                    autorCTR.excluirAutor(autorDTO)
             );
        }
     }
@@ -478,15 +368,15 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
         catch(Exception e){}
     }
 
-    private void preencheTabela(String mar_car){
+    private void preencheTabela(String nome){
         try{
             modelo_jtlConsultarAutor.setNumRows(0);
-            autorDTO.setTituloLivro(tituloLivro);
+            autorDTO.setNome(nome);
             rs = autorCTR.consultarAutor(autorDTO, 1); 
             while(rs.next()){
                  modelo_jtlConsultarAutor.addRow(new Object[]{
                   rs.getString("idAutor"),
-                  rs.getString("tituloLivro"),
+                  rs.getString("nome"),
                 });
             }        
         }
@@ -501,7 +391,7 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
             rs = autorCTR.consultarAutor(autorDTO, 2);
             if(rs.next()){
                 limpaCampos();
-                tituloLivro.setText(rs.getString("tituloLivro"));
+                nome.setText(rs.getString("nome"));
                 idade.setText(rs.getString("idade"));
                 tempoCarreira.setText(rs.getString("tempoCarreira"));
                 gravar_alterar = 2;
@@ -533,20 +423,6 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
         btnSair.setEnabled(e);
     }
 
-    private void verificaTamanho(JTextField jtextfield, int maximo) {                            
-        String tamanho = jtextfield.getText();
-        if(tamanho.length() >= maximo){
-              jtextfield.setText(jtextfield.getText().substring(0, maximo-1));
-        }
-    } 
-
-    private void verificaTamanho(JTextArea jtextarea, int maximo) {                            
-        String tamanho = jtextarea.getText();
-        if(tamanho.length() >= maximo){
-              jtextarea.setText(jtextarea.getText().substring(0, maximo-1));
-        }
-    }
-
     private boolean verificaPreenchimentoGeral() {                            
         if(nome.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(null, "O campo Nome deve ser preenchido");
@@ -565,42 +441,33 @@ public class AutorVIEW extends javax.swing.JInternalFrame {
                     tempoCarreira.requestFocus();
                     return false;
                 }
+                else{
+                    return true;
+                }
             }
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox aventura;
     private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JCheckBox comedia;
     private javax.swing.JTextField consultarAutor;
-    private javax.swing.JTextArea descricao;
-    private javax.swing.JCheckBox drama;
     private javax.swing.JTextField idade;
-    private javax.swing.JComboBox<String> idioma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable modelo_jtlConsultarAutor;
+    private javax.swing.JTable jtlConsultarAutor;
     private javax.swing.JTextField nome;
-    private javax.swing.JCheckBox romance;
-    private javax.swing.JCheckBox suspense;
     private javax.swing.JTextField tempoCarreira;
-    private javax.swing.JCheckBox terror;
     // End of variables declaration//GEN-END:variables
         
+}

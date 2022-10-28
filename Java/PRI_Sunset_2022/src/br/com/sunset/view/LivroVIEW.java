@@ -19,7 +19,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
  
     public LivroVIEW() {
         initComponents();
-        this.setSize(768, 465);
+        this.setSize(809, 496);
         liberaCampos(false);
         liberaBotoes(true, false, false, false, true);
         modelo_jtlConsultarAutor = (DefaultTableModel) jtlConsultarAutor.getModel();
@@ -39,22 +39,20 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         iLabel1 = new javax.swing.JLabel();
         titulo = new javax.swing.JTextField();
         iLabel2 = new javax.swing.JLabel();
-        isbn = new javax.swing.JTextField();
+        editoraLivro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         dtaPublicacao = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        idioma = new javax.swing.JComboBox<>();
-        temaLivro = new javax.swing.JPanel();
-        romance = new javax.swing.JCheckBox();
-        comedia = new javax.swing.JCheckBox();
-        drama = new javax.swing.JCheckBox();
-        terror = new javax.swing.JCheckBox();
-        suspense = new javax.swing.JCheckBox();
-        aventura = new javax.swing.JCheckBox();
+        genero = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         sinopse = new javax.swing.JTextArea();
+        idioma = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        isbn = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        localPublicacao = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
@@ -82,9 +80,9 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
 
         iLabel2.setText("ISBN:");
 
-        isbn.addActionListener(new java.awt.event.ActionListener() {
+        editoraLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isbnActionPerformed(evt);
+                editoraLivroActionPerformed(evt);
             }
         });
 
@@ -102,64 +100,29 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Sinopse:");
 
-        idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um idioma", "Português - BR", "Inglês", "Espanhol", "Francês", "Alemão", "Russo" }));
-
-        temaLivro.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        romance.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        romance.setText("Romance");
-
-        comedia.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        comedia.setText("Comédia");
-
-        drama.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        drama.setText("Drama");
-
-        terror.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        terror.setText("Terror");
-
-        suspense.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        suspense.setText("Suspense");
-
-        aventura.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        aventura.setText("Aventura");
-
-        javax.swing.GroupLayout temaLivroLayout = new javax.swing.GroupLayout(temaLivro);
-        temaLivro.setLayout(temaLivroLayout);
-        temaLivroLayout.setHorizontalGroup(
-            temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(temaLivroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(romance)
-                    .addComponent(terror))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(suspense)
-                    .addComponent(drama))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comedia)
-                    .addComponent(aventura))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        temaLivroLayout.setVerticalGroup(
-            temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(temaLivroLayout.createSequentialGroup()
-                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(romance)
-                    .addComponent(drama)
-                    .addComponent(comedia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(temaLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(terror)
-                    .addComponent(suspense)
-                    .addComponent(aventura)))
-        );
+        genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um gênero", "Romance ", "Drama", "Comédia", "Terror", "Suspense", "Aventura" }));
 
         sinopse.setColumns(20);
         sinopse.setRows(5);
         jScrollPane2.setViewportView(sinopse);
+
+        idioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um idioma", "Português - BR", "Inglês", "Espanhol", "Francês", "Alemão", "Russo" }));
+
+        jLabel2.setText("Editora:");
+
+        isbn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isbnActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Local de Publicação:");
+
+        localPublicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                localPublicacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,24 +130,41 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(iLabel1)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titulo)
+                    .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(iLabel2)
-                            .addComponent(isbn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5)
+                            .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dtaPublicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)))
-                    .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(temaLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(localPublicacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iLabel2)
+                            .addComponent(isbn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iLabel1)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel3))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(30, 67, Short.MAX_VALUE))
+                                    .addComponent(dtaPublicacao)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,23 +177,32 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(iLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(isbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dtaPublicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dtaPublicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(isbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(localPublicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(temaLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -271,7 +260,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                 .addComponent(btnSalvar)
                 .addGap(53, 53, 53)
                 .addComponent(btnCancelar1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(btnExcluir)
                 .addGap(79, 79, 79)
                 .addComponent(btnSair)
@@ -294,7 +283,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Descrição:");
+        jLabel8.setText("Nome:");
         jLabel8.setMaximumSize(new java.awt.Dimension(49, 14));
 
         btnPesquisarPro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -316,11 +305,11 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "Descrição", "Valor"
+                "ID", "Nome"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -335,11 +324,11 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "Descrição", "Valor", "QTD"
+                "ID", "Nome"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -348,6 +337,9 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         });
         jtl_ConsultarAutorSelecionado.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(jtl_ConsultarAutorSelecionado);
+        if (jtl_ConsultarAutorSelecionado.getColumnModel().getColumnCount() > 0) {
+            jtl_ConsultarAutorSelecionado.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         btnAutorRem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sunset/view/imagens/autorRem.png"))); // NOI18N
         btnAutorRem.setToolTipText("Remover Produto da Lista");
@@ -370,18 +362,25 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pesquisaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnPesquisarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(btnAutorAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAutorRem, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pesquisaAutor)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnAutorAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAutorRem, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(165, 165, 165))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(14, 14, 14))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,8 +396,9 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAutorRem, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAutorAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -419,7 +419,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,14 +430,12 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                 .addGap(13, 13, 13))
         );
 
-        jPanel2.getAccessibleContext().setAccessibleName("Consulta");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void isbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isbnActionPerformed
+    private void editoraLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editoraLivroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_isbnActionPerformed
+    }//GEN-LAST:event_editoraLivroActionPerformed
 
     private void dtaPublicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dtaPublicacaoActionPerformed
         // TODO add your handling code here:
@@ -507,15 +505,24 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         );
     }//GEN-LAST:event_btnAutorAddActionPerformed
 
+    private void isbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isbnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_isbnActionPerformed
+
+    private void localPublicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localPublicacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_localPublicacaoActionPerformed
+
 private void gravar(){
         try{
-            livroDTO.setTituloLivro(tituloLivro.getText());
-            livroDTO.setDtaPubli(Integer.parseInt(dtaPubli.getText()));
-            livroDTO.setTemaLivro(temaLivro.getText());
-            livroDTO.setLocalPubli(localPubli.getText());
+            livroDTO.setTituloLivro(titulo.getText());
+            livroDTO.setDtaPubli(dtaPublicacao.getText());
+            livroDTO.setTemaLivro(genero.getSelectedItem().toString());
+            livroDTO.setLocalPubli(editoraLivro.getText());
             livroDTO.setEditoraLivro(editoraLivro.getText());
             livroDTO.setSinopse(sinopse.getText());
-            livroDTO.setIdioma(idioma.getText());
+            livroDTO.setIdioma(idioma.getSelectedItem().toString());
+            livroDTO.setISBN(Integer.parseInt(isbn.getText()));
             
             JOptionPane.showMessageDialog(null,
                     livroCTR.inserirLivro(livroDTO)
@@ -536,14 +543,15 @@ private void gravar(){
 
     private void alterar(){
         try{
-            livroDTO.setTituloLivro(tituloLivro.getText());
-            livroDTO.setDtaPubli(Integer.parseInt(dtaPubli.getText()));
-            livroDTO.setTemaLivro(temaLivro.getText());
-            livroDTO.setLocalPubli(localPubli.getText());
+            livroDTO.setTituloLivro(titulo.getText());
+            livroDTO.setDtaPubli(dtaPublicacao.getText());
+            livroDTO.setTemaLivro(genero.getSelectedItem().toString());
+            livroDTO.setLocalPubli(localPublicacao.getText());
             livroDTO.setEditoraLivro(editoraLivro.getText());
             livroDTO.setSinopse(sinopse.getText());
-            livroDTO.setIdioma(idioma.getText());
-     
+            livroDTO.setIdioma(idioma.getSelectedItem().toString());
+            livroDTO.setISBN(Integer.parseInt(isbn.getText()));
+            
             JOptionPane.showMessageDialog(null,
                     livroCTR.alterarLivro(livroDTO)
             );
@@ -574,13 +582,13 @@ private void gravar(){
             rs = livroCTR.consultarLivro(livroDTO, 2);
             if(rs.next()){
                 limpaCampos();
-                dtaPubli.setText(rs.getString("dtaPubli"));
-                tituloLivro.setText(rs.getString("tituloLivro"));
-                temaLivro.setText(rs.getString("temaLivro"));
-                localPubli.setText(rs.getString("localPubli"));
+                dtaPublicacao.setText(rs.getString("dtaPublicacao"));
+                titulo.setText(rs.getString("tituloLivro"));
+                genero.getModel().setSelectedItem(rs.getString("genero"));
+                localPublicacao.setText(rs.getString("localPublicacao"));
                 editoraLivro.setText(rs.getString("editoraLivro"));
                 sinopse.setText(rs.getString("sinopse"));
-                idioma.setText(rs.getString("idioma"));
+                idioma.getModel().setSelectedItem(rs.getString("idioma"));
                 gravar_alterar = 2;
                 liberaCampos(true);
             }
@@ -591,23 +599,26 @@ private void gravar(){
     }
 
     private void liberaCampos(boolean a){
-        dtaPubli.setEnabled(a);
-        tituloLivro.setEnabled(a);
-        temaLivro.setEnabled(a);
-        localPubli.setEnabled(a);
+        dtaPublicacao.setEnabled(a);
+        titulo.setEnabled(a);
+        genero.setEnabled(a);
+        localPublicacao.setEnabled(a);
         editoraLivro.setEnabled(a);
         sinopse.setEnabled(a);
         idioma.setEnabled(a);
+        isbn.setEnabled(a);
     }
 
     private void limpaCampos(){
-        dtaPubli.setText("");
-        tituloLivro.setText("");
-        temaLivro.setText("");
-        localPubli.setText("");
+        dtaPublicacao.setText("");
+        titulo.setText("");
+        genero.getModel().setSelectedItem(0);
+        localPublicacao.setText("");
         editoraLivro.setText("");
         sinopse.setText("");
-        idioma.setText("");
+        idioma.getModel().setSelectedItem(0);
+        isbn.setText("");
+        
     }
 
     private void liberaBotoes(boolean a, boolean b, boolean c, boolean d, boolean e){
@@ -633,27 +644,27 @@ private void gravar(){
     }
 
     private boolean verificaPreenchimentoGeral() {                            
-        if(dtaPubli.getText().equalsIgnoreCase("")){
+        if(dtaPublicacao.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(null, "O campo Data de Publicação deve ser preenchido");
-              dtaPubli.requestFocus();
+              dtaPublicacao.requestFocus();
               return false;
         }
         else{
-            if(tituloLivro.getText().equalsIgnoreCase("")){
+            if(titulo.getText().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "O campo Título do Livro deve ser preenchido");
-                tituloLivro.requestFocus();
+                titulo.requestFocus();
                 return false;
             }
             else{
-                if(temaLivro.getText().equalsIgnoreCase("")){
+                if(genero.getSelectedIndex() == -1 ){
                     JOptionPane.showMessageDialog(null, "O campo Tema do Livro deve ser selecionado");
-                    temaLivro.requestFocus();
+                    genero.requestFocus();
                     return false;
                 }
                 else{
-                    if(localPubli.getText().equalsIgnoreCase("")){
+                    if(localPublicacao.getText().equalsIgnoreCase("")){
                         JOptionPane.showMessageDialog(null, "O campo Local de Publicação deve ser preenchido");
-                        localPubli.requestFocus();
+                        localPublicacao.requestFocus();
                         return false;
                     }
                     else{
@@ -664,7 +675,6 @@ private void gravar(){
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox aventura;
     private javax.swing.JButton btnAutorAdd;
     private javax.swing.JButton btnAutorRem;
     private javax.swing.JButton btnCancelar1;
@@ -673,14 +683,16 @@ private void gravar(){
     private javax.swing.JButton btnPesquisarPro;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JCheckBox comedia;
-    private javax.swing.JCheckBox drama;
     private javax.swing.JTextField dtaPublicacao;
+    private javax.swing.JTextField editoraLivro;
+    private javax.swing.JComboBox<String> genero;
     private javax.swing.JLabel iLabel1;
     private javax.swing.JLabel iLabel2;
     private javax.swing.JComboBox<String> idioma;
     private javax.swing.JTextField isbn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -694,12 +706,9 @@ private void gravar(){
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jtlConsultarAutor;
     private javax.swing.JTable jtl_ConsultarAutorSelecionado;
+    private javax.swing.JTextField localPublicacao;
     private javax.swing.JTextField pesquisaAutor;
-    private javax.swing.JCheckBox romance;
     private javax.swing.JTextArea sinopse;
-    private javax.swing.JCheckBox suspense;
-    private javax.swing.JPanel temaLivro;
-    private javax.swing.JCheckBox terror;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 

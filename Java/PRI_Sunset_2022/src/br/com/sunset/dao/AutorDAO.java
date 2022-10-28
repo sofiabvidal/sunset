@@ -15,10 +15,10 @@ public class AutorDAO {
             stmt = ConexaoDAO.con.createStatement();
             String comando = "Insert into Autor (idade, tempoCarreira, "
                     + "nome) values ( "
-                    + "'" + autorDTO.getIdade() + "', "
+                    + autorDTO.getIdade() + ", " ///aqui estava com aspas simples e não tem
                     + autorDTO.getTempoCarreira() + ", "
                     + "'" + autorDTO.getNome() + "')";
-            stmt.execute(comando.toLowerCase());
+            stmt.execute(comando.toUpperCase());
             ConexaoDAO.con.commit();
             stmt.close();
             return true;
@@ -55,9 +55,9 @@ public class AutorDAO {
             ConexaoDAO.ConectDB();
             stmt = ConexaoDAO.con.createStatement();
             String comando = "Update Autor set "
-                    + "idade = '" + autorDTO.getIdade() + "', "
+                    + "idade = " + autorDTO.getIdade() + ", " //aqui tinha aspas simples e não tem o campo é inteiro
                     + "tempoCarreira = " + autorDTO.getTempoCarreira() + ", "
-                    + "nome = '" + autorDTO.getNome() + "', "
+                    + "nome = '" + autorDTO.getNome() + "' " //aqui não tem a vírgula
                     + "where idAutor = " + autorDTO.getIdAutor();
             stmt.execute(comando.toLowerCase());
             ConexaoDAO.con.commit();
@@ -83,8 +83,8 @@ public class AutorDAO {
                 case 1:
                     comando = "Select a.* "+
                               "from Autor a "+
-                              "where tempoCarreira like '" + autorDTO.getTempoCarreira() + "%' " +
-                              "order by a.tempoCarreira";
+                              "where nome ilike '" + autorDTO.getNome()+ "%' " +  //aqui a pesquisa é por nome
+                              "order by a.nome";
                     
                 break;           
 
