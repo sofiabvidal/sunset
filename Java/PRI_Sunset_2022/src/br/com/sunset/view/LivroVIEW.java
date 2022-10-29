@@ -518,7 +518,7 @@ private void gravar(){
             livroDTO.setTituloLivro(titulo.getText());
             livroDTO.setDtaPubli(dtaPublicacao.getText());
             livroDTO.setTemaLivro(genero.getSelectedItem().toString());
-            livroDTO.setLocalPubli(editoraLivro.getText());
+            livroDTO.setLocalPubli(localPublicacao.getText());
             livroDTO.setEditoraLivro(editoraLivro.getText());
             livroDTO.setSinopse(sinopse.getText());
             livroDTO.setIdioma(idioma.getSelectedItem().toString());
