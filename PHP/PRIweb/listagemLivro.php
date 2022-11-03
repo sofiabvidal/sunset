@@ -44,7 +44,7 @@ $stmt = $conn -> query($sql);
             <td>
 
                 <a class="btn btn-sm btn-warning" 
-                href="#?idlivro=<?= $row['idlivro']; ?>">
+                href="formAlterarLivro.php?idlivro=<?= $row['idlivro']; ?>">
                     <span data-feather="edit"></span>
                     Editar
                 </a>

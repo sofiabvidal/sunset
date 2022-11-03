@@ -34,7 +34,7 @@ $stmt = $conn -> query($sql);
             <td>
 
                 <a class="btn btn-sm btn-warning" 
-                href="#?idautor=<?= $row['idautor']; ?>">
+                href="formAlterarAutor.php?idautor=<?= $row['idautor']; ?>">
                     <span data-feather="edit"></span>
                     Editar
                 </a>

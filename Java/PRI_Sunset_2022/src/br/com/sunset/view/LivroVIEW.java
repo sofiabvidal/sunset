@@ -8,10 +8,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import br.com.sunset.dto.LivroDTO;
 import br.com.sunset.ctr.LivroCTR;
+import br.com.sunset.dto.AutorDTO;
+import br.com.sunset.ctr.AutorCTR;
 
 public class LivroVIEW extends javax.swing.JInternalFrame {
     LivroDTO livroDTO = new LivroDTO();
     LivroCTR livroCTR = new LivroCTR();
+    AutorDTO autorDTO = new AutorDTO();
+    AutorCTR autorCTR = new AutorCTR();
     ResultSet rs; 
     int gravar_alterar; 
     DefaultTableModel modelo_jtlConsultarAutor;
@@ -450,7 +454,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
             else{
                 if(gravar_alterar==2){
                     alterar();
-                    preencheTabela(pesquisaAutor.getText().toUpperCase());
+                    preencheTabelaAutor(pesquisaAutor.getText().toUpperCase());
                     gravar_alterar=0;
                 }
                 else{
@@ -476,7 +480,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         limpaCampos();
         liberaCampos(false);
         liberaBotoes(true, false, false, false, true);
-        preencheTabela(pesquisaAutor.getText().toUpperCase());
+        preencheTabelaAutor(pesquisaAutor.getText().toUpperCase());
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -490,7 +494,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnPesquisarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProActionPerformed
-        preencheTabela(pesquisaAutor.getText());
+        preencheTabelaAutor(pesquisaAutor.getText());
     }//GEN-LAST:event_btnPesquisarProActionPerformed
 
     private void btnAutorRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorRemActionPerformed
@@ -500,9 +504,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
     private void btnAutorAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorAddActionPerformed
         adicionaAutorSelecionado(
             Integer.parseInt(String.valueOf(jtlConsultarAutor.getValueAt(jtlConsultarAutor.getSelectedRow(), 0))),
-            String.valueOf(jtlConsultarAutor.getValueAt(jtlConsultarAutor.getSelectedRow(), 1)),
-            Double.parseDouble(String.valueOf(jtlConsultarAutor.getValueAt(jtlConsultarAutor.getSelectedRow(), 2)))
-        );
+            String.valueOf(jtlConsultarAutor.getValueAt(jtlConsultarAutor.getSelectedRow(), 1)));
     }//GEN-LAST:event_btnAutorAddActionPerformed
 
     private void isbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isbnActionPerformed
@@ -559,15 +561,15 @@ private void gravar(){
         catch(Exception e){}
     }
     
-    private void preencheTabela(String tituloLivro){
+    private void preencheTabelaAutor(String nomeautor){
         try{
             modelo_jtlConsultarAutor.setNumRows(0);
-            livroDTO.setTituloLivro(tituloLivro);
-            rs = livroCTR.consultarLivro(livroDTO, 1);
+            autorDTO.setNome(nomeautor);
+            rs = autorCTR.consultarAutor(autorDTO, 1);
             while(rs.next()){
                 modelo_jtlConsultarAutor.addRow(new Object[]{
-                  rs.getString("ISBN"),
-                  rs.getString("tituloLivro"),
+                  rs.getString("idautor"),
+                  rs.getString("nome"),
                 });
             }        
         }
@@ -575,6 +577,34 @@ private void gravar(){
             System.out.println("Erro SQL: "+erTab);
         }  
     }
+    
+      private void adicionaAutorSelecionado(int idautor, String nomeautor){
+        try{
+            modelo_jtl_ConsultarAutorSelecionado.addRow(new Object[]{
+                idautor,
+                nomeautor,
+            });
+        }
+        catch(Exception erTab){
+            System.out.println("Erro SQL: "+erTab);
+        }  
+    }//Fecha método adicionaProdutoSelecionado()
+    
+    
+    /**
+     * Método utilizado para Remover produtos selecionados na Jtable.
+     * @param linha_selecionada, int com a linha do produto que será excluido
+     */
+    private void removeAutorSelecionado(int linha_selecionada){
+        try{
+            if(linha_selecionada >= 0){
+                modelo_jtl_ConsultarAutorSelecionado.removeRow(linha_selecionada);
+            } 
+        }
+        catch(Exception erTab){
+            System.out.println("Erro SQL: "+erTab);
+        }  
+    }//Fecha método removeProdutoSelecionado()
 
     private void preencheCampos(int ISBN){
         try{
@@ -712,11 +742,4 @@ private void gravar(){
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 
-    private void removeAutorSelecionado(int selectedRow) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void adicionaAutorSelecionado(int parseInt, String valueOf, double parseDouble) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
