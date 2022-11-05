@@ -50,8 +50,8 @@ footer {
           </li>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisa" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" action="pesquisa.php" method="POST">
+          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisa" aria-label="Search" id="texto" name="texto">
           <button style="background-color: #D9A658; border-color: #F8CF86; color: white;" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Pesquisar </button>
         </form>
       </div>

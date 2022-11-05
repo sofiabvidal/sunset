@@ -1,16 +1,17 @@
-<?php
+<?php session_start();
 
 $titulo_pagina = "Alterar Autor";
 require "cabecalho.php";
 
 require "conexao.php";
 
-$idautor = filter_input(INPUT_POST, "idautor", FILTER_SANITIZE_NUMBER_INT);
+//$idautor = filter_input(INPUT_POST, "idautor", FILTER_SANITIZE_NUMBER_INT);
 $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
 $idade = filter_input(INPUT_POST, "idade", FILTER_SANITIZE_NUMBER_INT);
 $tempocarreira = filter_input(INPUT_POST, "tempocarreira", FILTER_SANITIZE_NUMBER_INT);
 
-echo "<p> ID: $idautor </p>";
+$idautor = $_SESSION['idautor'];
+
 echo "<p> Nome: $nome </p>";
 echo "<p> Idade: $idade </p>";
 echo "<p> Tempo de Carreira: $tempocarreira </p>";
@@ -23,6 +24,10 @@ $sql = "update autor set
 
 $stmt = $conn->prepare($sql);
 $result = $stmt->execute([$nome, $idade, $tempocarreira, $idautor]);
+
+/*
+$sql = "update autor set nome = '$nome', idade = $idade, tempocarreira = $tempocarreira WHERE idautor = $idautor";
+$stmt = $conn -> query($sql);*/
 
 if ($result == true) {
 ?>
