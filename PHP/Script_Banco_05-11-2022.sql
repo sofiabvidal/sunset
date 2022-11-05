@@ -6,6 +6,9 @@ create table autor (
 	constraint pk_autor primary key (idAutor)
 );
 
+select * from autor;
+
+
 create table livro (
 	idLivro serial,
 	ISBN int not null UNIQUE,
@@ -21,6 +24,7 @@ create table livro (
 
 select * from livro;
 
+
 create table livroAutor ( 
 	idLivroAutor serial,
 	idAutor int not null,
@@ -30,6 +34,20 @@ create table livroAutor (
 	constraint fk_idLivro FOREIGN KEY (idLivro) references Livro (idLivro)
 );
 
-drop table livroAutor;
+select * from livroAutor;
 
-select * from autor;
+
+create table bibliotecaria (
+	nome varchar(30),
+	prontuario varchar(30),
+	email varchar(100),
+	senha varchar(100),
+	idBibliotecaria serial not null,
+	constraint pk_bibliotecaria primary key (idBibliotecaria)
+);
+
+select * from bibliotecaria;
+
+insert into bibliotecaria values
+('Bibliotecaria 1', 'vp3008665', 'bibliotecaria1@ifsp.edu.br', 'ifsp2022');
+

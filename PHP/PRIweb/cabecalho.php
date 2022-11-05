@@ -10,12 +10,29 @@
     <title> Sunset </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+footer {
+    margin-top: auto;
+}
+</style> 
   </head>
 
   <body>
+  <body style="background-image: url(img/logo_5.png); background-repeat: no-repeat; background-size: 100%"> 
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.php"> Sunset </a>
+    <nav style="background-color: #B55E23; color: white;" class="navbar navbar-expand-md">
+      <a style="color: white;" class="navbar-brand" href="index.php"> Sunset </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,26 +40,19 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(atual)</span></a>
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link" href="listagemAutor.php"> Autores </a>
+          </li>
+          <a style="color: white;" class="nav-link" href="listagemLivro.php"> Livros </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a style="color: white;" class="nav-link disabled" href="formularioLogin.php"> Área da Bibliotecária </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Desativado</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Item</a>
-              <a class="dropdown-item" href="#">Outro item</a>
-              <a class="dropdown-item" href="#">Algum outro item</a>
-            </div>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Pesquisa" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+          <button style="background-color: #D9A658; border-color: #F8CF86; color: white;" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Pesquisar </button>
         </form>
       </div>
     </nav>
