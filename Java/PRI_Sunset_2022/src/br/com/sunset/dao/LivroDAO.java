@@ -1,6 +1,7 @@
 package br.com.sunset.dao;
 
 import br.com.sunset.dto.LivroDTO;
+import br.com.sunset.dto.AutorDTO;
 import java.sql.*;
 
 public class LivroDAO {
@@ -8,11 +9,13 @@ public class LivroDAO {
     }
     private ResultSet rs = null;
     private Statement stmt = null;
+    Statement stmt1 = null;
     
-    public boolean inserirLivro(LivroDTO livroDTO) {
+    public boolean inserirLivro(LivroDTO livroDTO, AutorDTO autorDTO) {
         try {
             ConexaoDAO.ConectDB();
             stmt = ConexaoDAO.con.createStatement();
+            stmt1 = ConexaoDAO.con.createStatement();
            String comando = "Insert into Livro (ISBN, dtaPublicacao, "
                     + "tituloLivro, temaLivro, localPublicacao, "
                     + "editoraLivro, sinopse, idioma) values ("
@@ -37,6 +40,31 @@ public class LivroDAO {
         finally {
             ConexaoDAO.CloseDB();
         }
+        
+//        for(int cont=0; cont < autor.getRowCount(); cont++){
+//                String comando2 = "Insert into livroAutor (idLivro idAutor, " 
+//                    + "idLivroAutor) values ( "
+//                    + rs.getInt("idLivroAutor") + ", "
+//                    + autor.getValueAt(cont, 0) + ", "
+//                    + autor.getValueAt(cont, 2) + ", "
+//                    + autor.getValueAt(cont, 3) + "); ";
+//                
+//                stmt1.execute(comando2);
+//            }
+//            ConexaoDAO.con.commit();
+//            stmt.close();
+//            stmt1.close();
+//            rs.close();
+//            return true;
+//        } 
+//        catch (Exception e) {
+//            System.out.println(e.getMessage());
+//            return false;
+//        }
+//        finally {
+//            ConexaoDAO.CloseDB();
+//        }
+//    }
     }
     
     public boolean alterarLivro(LivroDTO livroDTO) {
