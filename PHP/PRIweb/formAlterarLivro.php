@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 $titulo_pagina = "Alteração de Livros";
 
@@ -11,22 +11,25 @@ $idlivro = filter_input(INPUT_GET, "idlivro", FILTER_SANITIZE_NUMBER_INT);
 $sql = "select idlivro, isbn, dtapublicacao, idioma, titulolivro, localpublicacao, sinopse, temalivro, editoralivro from livro where idlivro = $idlivro order by idlivro";
 $stmt = $conn -> query($sql);
 
+$_SESSION['idlivro'] = $idlivro;
+
 while ($row = $stmt->fetch()) {
-    $isbn = $row['isbn'];
-    $dtapublicacao = $row['dtapublicacao'];
-    $idioma = $row['idioma'];
-    $titulolivro = $row['titulolivro'];
-    $localpublicacao = $row['localpublicacao'];
-    $sinope = $row['sinopse'];
-    $temaLivro = $row['temalivro'];
-    $editoraLivro = $row['editoralivro'];
+        $isbn = $row['isbn'];
+        $dtapublicacao = $row['dtapublicacao'];
+        $idioma = $row['idioma'];
+        $titulolivro = $row['titulolivro'];
+        $localpublicacao = $row['localpublicacao'];
+        $sinope = $row['sinopse'];
+        $temaLivro = $row['temalivro'];
+        $editoraLivro = $row['editoralivro'];
 }
 
 ?>
+
 <div class="row justify-content-md-center" style="width: 100%; display: flex;">
 <div class="col-7">
 <form action="alterarLivro.php" method="POST" style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: 5%;">
-<h1 class="h3 mb-3 fw-normal"> Edição de livro </h1>
+<h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Edição de livro </h1>
 <div class="form-floating mb-2">
     <label for="isbn" class="form-label"> ISBN </label>
     <input type="number" class="form-control" id="isbn" name="isbn" value="<?php echo $isbn; ?>" required>
@@ -60,8 +63,8 @@ while ($row = $stmt->fetch()) {
     <input type="text" class="form-control" id="editoralivro" name="editoralivro" value="<?php echo $editoraLivro; ?>" required>
 </div>
 
-<button type="submit" class="btn btn-primary"> Gravar </button>
-<button type="reset" class="btn btn-primary"> Cancelar </button>
+<button type="submit" class="btn btn-primary" style="background-color: #D9A658; border-color: #F8CF86; color: white;"> Gravar </button>
+<button type="reset" class="btn btn-danger"> Cancelar </button>
 
 </div>
 

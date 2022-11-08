@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="img/logo2.png">
 
     <title> Sunset </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -28,10 +28,8 @@ footer {
 </style> 
   </head>
 
-  <body>
-  <body style="background-image: url(img/logo_5.png); background-repeat: no-repeat; background-size: 100%"> 
-
-    <nav style="background-color: #B55E23; color: white;" class="navbar navbar-expand-md">
+  <body style="background-image: url(img/fundo2.png); background-repeat: no-repeat; background-size: 100%"> 
+    <nav style="background-color: #CB7B00; color: white;" class="navbar navbar-expand-md">
       <a style="color: white;" class="navbar-brand" href="index.php"> Sunset </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

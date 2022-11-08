@@ -9,16 +9,17 @@ $stmt = $conn -> query($sql);
 
 ?>
 
-<div class="table-responsive">
+<br>
+<div class="table-responsive" style="background-color: #D9A658; border-color: #F8CF86; color: white; opacity: 0.9; border-radius: 20px; padding: 20px;">
 <table class="table table-striped ">
     <thead>
         <tr>
 
-            <th scope="col" style="width: 10%;">ID</th>
-            <th scope="col" style="width: 25%;">Nome</th>
+            <th scope="col" style="width: 15%;">ID</th>
+            <th scope="col" style="width: 20%;">Nome</th>
             <th scope="col" style="width: 15%;">Idade</th>
-            <th scope="col" style="width: 15%;">Tempo de Carreira</th>
-            <th scope="col" style="width: 25%;" colspan="2"></th>
+            <th scope="col" style="width: 20%;">Tempo de Carreira</th>
+            <th scope="col" style="width: 35%;" colspan="2"></th>
 
         </tr>
     </thead>

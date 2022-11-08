@@ -9,7 +9,8 @@ $stmt = $conn -> query($sql);
 
 ?>
 
-<div class="table-responsive">
+<br>
+<div class="table-responsive" style="background-color: #D9A658; border-color: #F8CF86; color: white; opacity: 0.9; border-color: #F8CF86; color: white; opacity: 0.9; border-radius: 20px; padding: 20px;">
 <table class="table table-striped ">
     <thead>
         <tr>
@@ -18,11 +19,11 @@ $stmt = $conn -> query($sql);
             <th scope="col" style="width: 9%;">ISBN</th>
             <th scope="col" style="width: 9%;">Data de Publicação</th>
             <th scope="col" style="width: 9%;">Idioma</th>
-            <th scope="col" style="width: 9%;">Título do Livro</th>
+            <th scope="col" style="width: 9%;">Título</th>
             <th scope="col" style="width: 9%;">Local de Publicação</th>
             <th scope="col" style="width: 9%;">Sinopse</th>
-            <th scope="col" style="width: 9%;">Tema do Livro</th>
-            <th scope="col" style="width: 9%;">Editora do Livro</th>
+            <th scope="col" style="width: 9%;">Gênero</th>
+            <th scope="col" style="width: 9%;">Editora</th>
             <th scope="col" style="width: 18%;" colspan="2"></th>
 
         </tr>

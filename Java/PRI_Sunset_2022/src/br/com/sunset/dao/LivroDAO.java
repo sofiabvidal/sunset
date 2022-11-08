@@ -3,6 +3,7 @@ package br.com.sunset.dao;
 import br.com.sunset.dto.LivroDTO;
 import br.com.sunset.dto.AutorDTO;
 import java.sql.*;
+import javax.swing.JTable;
 
 public class LivroDAO {
     public LivroDAO() {
@@ -11,7 +12,7 @@ public class LivroDAO {
     private Statement stmt = null;
     Statement stmt1 = null;
     
-    public boolean inserirLivro(LivroDTO livroDTO, AutorDTO autorDTO) {
+    public boolean inserirLivro(LivroDTO livroDTO, JTable autor) {
         try {
             ConexaoDAO.ConectDB();
             stmt = ConexaoDAO.con.createStatement();
@@ -28,9 +29,22 @@ public class LivroDAO {
                     + "'" + livroDTO.getSinopse() + "', "
                     + "'" + livroDTO.getIdioma() + "')"; //como é o último campo não deve ter a vírgula.
             System.out.println(comando);
-            stmt.execute(comando.toLowerCase());
+            stmt.execute(comando.toUpperCase(), Statement.RETURN_GENERATED_KEYS);
+            rs = stmt.getGeneratedKeys();
+            rs.next();
+            
+            for(int cont=0; cont < autor.getRowCount(); cont++){
+               String comando2 = "Insert into livroAutor (idLivro, idAutor) values ( "
+                    + rs.getInt("idLivro") + ", "
+                    + autor.getValueAt(cont, 0) + ")";
+                
+                stmt1.execute(comando2);
+            }
+            
             ConexaoDAO.con.commit();
             stmt.close();
+            stmt1.close();
+            rs.close();
             return true;
         }
         catch (Exception e) {

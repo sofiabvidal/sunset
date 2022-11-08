@@ -417,7 +417,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="pesquisaAutor" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnPesquisarPro" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnPesquisarAutor" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -445,7 +445,7 @@
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="pesquisaAutor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btnPesquisarPro" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnPesquisarAutor" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane3" min="-2" pref="92" max="-2" attributes="0"/>
@@ -473,7 +473,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="pesquisaAutor">
         </Component>
-        <Component class="javax.swing.JButton" name="btnPesquisarPro">
+        <Component class="javax.swing.JButton" name="btnPesquisarAutor">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="1"/>
@@ -497,7 +497,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarProActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarAutorActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">

@@ -10,7 +10,7 @@ require "conexao.php";
         <div class="col-3">
         <br><br><br>
 <form action="login.php" method="POST" style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: -15%;">
-    <h1 class="h3 mb-3 fw-normal"> Faça seu login para ter acesso </h1>
+    <h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Login </h1>
     
     <div class="form-floating mb-2">
         <label for="floatingInput"> Nome </label> 
@@ -28,7 +28,7 @@ require "conexao.php";
         <label for="floatingPassword"> Senha </label> 
         <input type="password" class="form-control" name="senha" id="floatingPassword" placeholder="Insira sua senha">
     </div>    
-<button type="submit" class="btn btn-primary"> Entrar </button>
+<button type="submit" style="background-color: #D9A658; border-color: #F8CF86; color: white;" class="btn btn-primary"> Entrar </button>
 </form>
     </div>
 </div>  

@@ -20,30 +20,31 @@ while ($row = $stmt->fetch()) {
 }
 
 ?>
-
-<form action="alterarAutor.php" method="POST">
-<div class="row">
-<div class="col-8">
+<br><br><br><br><br><br>
+<div class="row justify-content-md-center">
+<div class="col-3">
+<form action="alterarAutor.php" method="POST" style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 10px; margin-top: -15%;">
+<h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Editar Autor </h1>
 <?php /* <div class="mb-3">
     <label for="idautor" class="form-label"> ID Autor </label>
     <input type="text" class="form-control" id="idautor" name="idautor" value="<?php echo $idautor; ?>" disabled required>
 </div> */
 ?>
-<div class="mb-3">
+<div class="form-floating mb-2">
     <label for="nome" class="form-label"> Nome </label>
     <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $nome; ?>" required>
 </div>
-<div class="mb-3">
+<div class="form-floating mb-2">
     <label for="idade" class="form-label"> Idade </label>
     <input type="number" class="form-control" id="idade" name="idade" value="<?php echo $idade; ?>" required>
 </div>
-<div class="mb-3">
+<div class="form-floating mb-2">
     <label for="tempoCarreira" class="form-label"> Tempo de Carreira </label>
     <input type="number" class="form-control" id="tempocarreira" name="tempocarreira" value="<?php echo $tempocarreira; ?>" required>
 </div>
 
-<button type="submit" class="btn btn-primary"> Gravar </button>
-<button type="reset" class="btn btn-primary"> Cancelar </button>
+<button type="submit" style="background-color: #D9A658; border-color: #F8CF86; color: white;" class="btn btn-primary"> Gravar </button>
+<button type="reset" class="btn btn-danger"> Cancelar </button>
 
 </div>
 </div>

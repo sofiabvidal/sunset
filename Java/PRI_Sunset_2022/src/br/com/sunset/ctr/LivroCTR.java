@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import br.com.sunset.dto.LivroDTO;
 import br.com.sunset.dao.LivroDAO;
 import br.com.sunset.dao.ConexaoDAO;
+import javax.swing.JTable;
 
 public class LivroCTR {
     LivroDAO livroDAO = new LivroDAO();
@@ -11,9 +12,9 @@ public class LivroCTR {
     public LivroCTR() {
     }
     
-    public String inserirLivro(LivroDTO livroDTO) {
+    public String inserirLivro(LivroDTO livroDTO, JTable autor) {
         try {
-            if (livroDAO.inserirLivro(livroDTO)) {
+            if (livroDAO.inserirLivro(livroDTO, autor)) {
                 return "Livro Cadastrado com Sucesso!!!";
             } else {
                 return "Livro NÃO Cadastrado!!!";

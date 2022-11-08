@@ -67,7 +67,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         pesquisaAutor = new javax.swing.JTextField();
-        btnPesquisarPro = new javax.swing.JButton();
+        btnPesquisarAutor = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtlConsultarAutor = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -290,17 +290,17 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         jLabel8.setText("Nome:");
         jLabel8.setMaximumSize(new java.awt.Dimension(49, 14));
 
-        btnPesquisarPro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnPesquisarPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sunset/view/imagens/pesquisar.png"))); // NOI18N
-        btnPesquisarPro.setAlignmentY(0.0F);
-        btnPesquisarPro.setBorder(null);
-        btnPesquisarPro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnPesquisarPro.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
-        btnPesquisarPro.setMaximumSize(new java.awt.Dimension(113, 35));
-        btnPesquisarPro.setMinimumSize(new java.awt.Dimension(113, 35));
-        btnPesquisarPro.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisarAutor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnPesquisarAutor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sunset/view/imagens/pesquisar.png"))); // NOI18N
+        btnPesquisarAutor.setAlignmentY(0.0F);
+        btnPesquisarAutor.setBorder(null);
+        btnPesquisarAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnPesquisarAutor.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
+        btnPesquisarAutor.setMaximumSize(new java.awt.Dimension(113, 35));
+        btnPesquisarAutor.setMinimumSize(new java.awt.Dimension(113, 35));
+        btnPesquisarAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarProActionPerformed(evt);
+                btnPesquisarAutorActionPerformed(evt);
             }
         });
 
@@ -373,7 +373,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pesquisaAutor)
                         .addGap(18, 18, 18)
-                        .addComponent(btnPesquisarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPesquisarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -393,7 +393,7 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pesquisaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnPesquisarPro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisarAutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
@@ -493,9 +493,9 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         gravar_alterar = 1;
     }//GEN-LAST:event_btnNovoActionPerformed
 
-    private void btnPesquisarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProActionPerformed
+    private void btnPesquisarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarAutorActionPerformed
         preencheTabelaAutor(pesquisaAutor.getText());
-    }//GEN-LAST:event_btnPesquisarProActionPerformed
+    }//GEN-LAST:event_btnPesquisarAutorActionPerformed
 
     private void btnAutorRemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorRemActionPerformed
         removeAutorSelecionado(jtl_ConsultarAutorSelecionado.getSelectedRow());
@@ -527,7 +527,7 @@ private void gravar(){
             livroDTO.setISBN(Integer.parseInt(isbn.getText()));
             
             JOptionPane.showMessageDialog(null,
-                    livroCTR.inserirLivro(livroDTO)
+                    livroCTR.inserirLivro(livroDTO, jtl_ConsultarAutorSelecionado)
             );
         }
         catch(Exception e){
@@ -637,6 +637,11 @@ private void gravar(){
         sinopse.setEnabled(a);
         idioma.setEnabled(a);
         isbn.setEnabled(a);
+        pesquisaAutor.setEnabled(a);
+        jtlConsultarAutor.setEnabled(a);
+        jtl_ConsultarAutorSelecionado.setEnabled(a);
+        btnAutorAdd.setEnabled(a);
+        btnAutorRem.setEnabled(a);
     }
 
     private void limpaCampos(){
@@ -648,6 +653,9 @@ private void gravar(){
         sinopse.setText("");
         idioma.getModel().setSelectedItem(0);
         isbn.setText("");
+        pesquisaAutor.setText("");
+        jtlConsultarAutor.getModel().setSelectedItem(0);
+        jtl_ConsultarAutorSelecionado
         
     }
 
@@ -710,7 +718,7 @@ private void gravar(){
     private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
-    private javax.swing.JButton btnPesquisarPro;
+    private javax.swing.JButton btnPesquisarAutor;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JTextField dtaPublicacao;

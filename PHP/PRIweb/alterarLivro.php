@@ -1,11 +1,11 @@
-<?php
+<?php session_start();
 
 $titulo_pagina = "Alterar Livro";
 require "cabecalho.php";
 
 require "conexao.php";
 
-$idlivro = filter_input(INPUT_POST, "idlivro", FILTER_SANITIZE_NUMBER_INT);
+//$idlivro = filter_input(INPUT_POST, "idlivro", FILTER_SANITIZE_NUMBER_INT);
 $isbn = filter_input(INPUT_POST, "isbn", FILTER_SANITIZE_NUMBER_INT);
 $dtapublicacao = filter_input(INPUT_POST, "dtapublicacao", FILTER_SANITIZE_SPECIAL_CHARS);
 $idioma = filter_input(INPUT_POST, "idioma", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -14,6 +14,8 @@ $localpublicacao = filter_input(INPUT_POST, "localpublicacao", FILTER_SANITIZE_S
 $sinopse = filter_input(INPUT_POST, "sinopse", FILTER_SANITIZE_SPECIAL_CHARS);
 $temalivro = filter_input(INPUT_POST, "temalivro", FILTER_SANITIZE_SPECIAL_CHARS);
 $editoralivro = filter_input(INPUT_POST, "editoralivro", FILTER_SANITIZE_SPECIAL_CHARS);
+
+$idlivro = $_SESSION['idlivro'];
 
 echo "<p> ISBN: $isbn </p>";
 echo "<p> Data de Publicação: $dtapublicacao </p>";
