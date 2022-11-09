@@ -10,6 +10,7 @@ import br.com.sunset.dto.LivroDTO;
 import br.com.sunset.ctr.LivroCTR;
 import br.com.sunset.dto.AutorDTO;
 import br.com.sunset.ctr.AutorCTR;
+import java.awt.Color;
 
 public class LivroVIEW extends javax.swing.JInternalFrame {
     LivroDTO livroDTO = new LivroDTO();
@@ -92,6 +93,15 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Data de Publicação:");
 
+        dtaPublicacao.setToolTipText("DD/MM/AAAA");
+        dtaPublicacao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dtaPublicacaoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dtaPublicacaoFocusLost(evt);
+            }
+        });
         dtaPublicacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dtaPublicacaoActionPerformed(evt);
@@ -515,6 +525,22 @@ public class LivroVIEW extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_localPublicacaoActionPerformed
 
+    private void dtaPublicacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dtaPublicacaoFocusLost
+        if(dtaPublicacao.getText().equals("")){
+            dtaPublicacao.setText("DD/MM/AAAA");
+            dtaPublicacao.setForeground(new Color(153, 153, 153));
+            dtaPublicacao.requestFocus();
+        }
+    }//GEN-LAST:event_dtaPublicacaoFocusLost
+
+    private void dtaPublicacaoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dtaPublicacaoFocusGained
+        if(dtaPublicacao.getText().equals("DD/MM/AAAA")){
+            dtaPublicacao.setText(null);
+            dtaPublicacao.setForeground(new Color(153, 153, 153));
+            dtaPublicacao.requestFocus();
+        }
+    }//GEN-LAST:event_dtaPublicacaoFocusGained
+
 private void gravar(){
         try{
             livroDTO.setTituloLivro(titulo.getText());
@@ -654,9 +680,8 @@ private void gravar(){
         idioma.getModel().setSelectedItem(0);
         isbn.setText("");
         pesquisaAutor.setText("");
-        jtlConsultarAutor.getModel().setSelectedItem(0);
-        jtl_ConsultarAutorSelecionado
-        
+        modelo_jtlConsultarAutor.setNumRows(0);
+        modelo_jtl_ConsultarAutorSelecionado.setNumRows(0);
     }
 
     private void liberaBotoes(boolean a, boolean b, boolean c, boolean d, boolean e){
