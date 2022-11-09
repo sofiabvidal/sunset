@@ -8,7 +8,7 @@ require "cabecalho.php";
 
 $texto = filter_input(INPUT_POST, "texto", FILTER_SANITIZE_SPECIAL_CHARS);
 
-$sql = "select idlivro, isbn, dtapublicacao, idioma, titulolivro, localpublicacao, sinopse, temalivro, editoralivro from livro where (titulolivro like '%$texto%') order by idlivro";
+$sql = "select livro.idlivro, livro.isbn, livro.dtapublicacao, livro.idioma, livro.titulolivro, livro.localpublicacao, livro.sinopse, livro.temalivro, livro.editoralivro, autor.nome from ((autor inner join livroAutor on autor.idAutor = livroAutor.idAutor) inner join livro on livroAutor.idLivro = livro.idLivro) where (titulolivro like '%$texto%') order by idlivro";
 $stmt = $conn -> query($sql);
 
 $count = 0;
@@ -19,15 +19,16 @@ $count = 0;
     <thead>
         <tr>
 
-            <th scope="col" style="width: 9%;">ID</th>
-            <th scope="col" style="width: 9%;">ISBN</th>
-            <th scope="col" style="width: 9%;">Data de Publicação</th>
-            <th scope="col" style="width: 9%;">Idioma</th>
-            <th scope="col" style="width: 9%;">Título do Livro</th>
-            <th scope="col" style="width: 9%;">Local de Publicação</th>
-            <th scope="col" style="width: 9%;">Sinopse</th>
-            <th scope="col" style="width: 9%;">Tema do Livro</th>
-            <th scope="col" style="width: 9%;">Editora do Livro</th>
+            <th scope="col" style="width: 5%;">ID</th>
+            <th scope="col" style="width: 8%;">ISBN</th>
+            <th scope="col" style="width: 8%;">Data de Publicação</th>
+            <th scope="col" style="width: 8%;">Idioma</th>
+            <th scope="col" style="width: 9%;">Título</th>
+            <th scope="col" style="width: 8%;">Local de Publicação</th>
+            <th scope="col" style="width: 11%;">Sinopse</th>
+            <th scope="col" style="width: 8%;">Gênero</th>
+            <th scope="col" style="width: 8%;">Editora</th>
+            <th scope="col" style="width: 9%;">Autor</th>
             <th scope="col" style="width: 18%;" colspan="2"></th>
 
         </tr>
@@ -47,6 +48,7 @@ $count = 0;
             <td><?= $row['sinopse'] ?></td>
             <td><?= $row['temalivro'] ?></td>
             <td><?= $row['editoralivro'] ?></td>
+            <td><?= $row['nome'] ?></td>
             <td>
 
                 <a class="btn btn-sm btn-warning" 
