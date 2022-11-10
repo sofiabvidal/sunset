@@ -5,6 +5,10 @@ require "cabecalho.php";
 
 $idautor = filter_input(INPUT_GET, "idautor", FILTER_SANITIZE_NUMBER_INT);
 
+$sql_livroAutor = "delete from livroAutor where idautor = ?";
+$stmt_livroAutor = $conn -> prepare($sql_livroAutor);
+$result_livroAutor = $stmt_livroAutor -> execute([$idautor]);
+
 $sql = "delete from autor where idautor = ?";
 $stmt = $conn -> prepare($sql);
 $result = $stmt -> execute([$idautor]);

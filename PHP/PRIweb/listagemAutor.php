@@ -42,7 +42,7 @@ $stmt = $conn -> query($sql);
             </td>
             <td>
                 <a class="btn btn-sm btn-danger" 
-                href="excluirAutor.php?idautor=<?= $row['idautor']; ?>"
+                href="verificaAutor.php?idautor=<?= $row['idautor']; ?>"
                 onclick="if(!confirm('Tem certeza que deseja excluir?')) return false;">
                     <span data-feather="trash-2"> </span>
                     Excluir

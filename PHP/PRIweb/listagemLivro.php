@@ -4,7 +4,7 @@ require "cabecalho.php";
 
 require "conexao.php";
 
-$sql = "select idlivro, isbn, dtapublicacao, idioma, titulolivro, localpublicacao, sinopse, temalivro, editoralivro from livro order by idlivro";
+$sql = "select livro.idlivro, livro.isbn, livro.dtapublicacao, livro.idioma, livro.titulolivro, livro.localpublicacao, livro.sinopse, livro.temalivro, livro.editoralivro, autor.nome from ((autor inner join livroAutor on autor.idAutor = livroAutor.idAutor) inner join livro on livroAutor.idLivro = livro.idLivro) order by idlivro";
 $stmt = $conn -> query($sql);
 
 ?>
@@ -15,15 +15,16 @@ $stmt = $conn -> query($sql);
     <thead>
         <tr>
 
-            <th scope="col" style="width: 9%;">ID</th>
-            <th scope="col" style="width: 9%;">ISBN</th>
-            <th scope="col" style="width: 9%;">Data de Publicação</th>
-            <th scope="col" style="width: 9%;">Idioma</th>
+            <th scope="col" style="width: 5%;">ID</th>
+            <th scope="col" style="width: 8%;">ISBN</th>
+            <th scope="col" style="width: 8%;">Data de Publicação</th>
+            <th scope="col" style="width: 8%;">Idioma</th>
             <th scope="col" style="width: 9%;">Título</th>
-            <th scope="col" style="width: 9%;">Local de Publicação</th>
-            <th scope="col" style="width: 9%;">Sinopse</th>
-            <th scope="col" style="width: 9%;">Gênero</th>
-            <th scope="col" style="width: 9%;">Editora</th>
+            <th scope="col" style="width: 8%;">Local de Publicação</th>
+            <th scope="col" style="width: 11%;">Sinopse</th>
+            <th scope="col" style="width: 8%;">Gênero</th>
+            <th scope="col" style="width: 8%;">Editora</th>
+            <th scope="col" style="width: 9%;">Autor</th>
             <th scope="col" style="width: 18%;" colspan="2"></th>
 
         </tr>
@@ -42,6 +43,7 @@ $stmt = $conn -> query($sql);
             <td><?= $row['sinopse'] ?></td>
             <td><?= $row['temalivro'] ?></td>
             <td><?= $row['editoralivro'] ?></td>
+            <td><?= $row['nome'] ?></td>
             <td>
 
                 <a class="btn btn-sm btn-warning" 

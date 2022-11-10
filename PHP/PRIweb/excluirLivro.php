@@ -5,11 +5,15 @@ require "cabecalho.php";
 
 $idlivro = filter_input(INPUT_GET, "idlivro", FILTER_SANITIZE_NUMBER_INT);
 
+$sql_livroAutor = "delete from livroAutor where idlivro = ?";
+$stmt_livroAutor = $conn -> prepare($sql_livroAutor);
+$result_livroAutor = $stmt_livroAutor -> execute([$idlivro]);
+
 $sql = "delete from livro where idlivro = ?";
 $stmt = $conn -> prepare($sql);
 $result = $stmt -> execute([$idlivro]);
 
-if ($result == true) {
+if ($result == true && $result_livroAutor == true) {
 ?>
     <div class="alert alert-sucess" role="alert">
         <h4> Registro excluído com sucesso! </h4>
