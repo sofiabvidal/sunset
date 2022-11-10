@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 $titulo_pagina = "Cadastro de Autores";
 

@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -27,10 +27,10 @@ footer {
 }
 </style> 
   </head>
-
+<?php //session_start(); ?>
   <body style="background-image: url(img/fundo2.png); background-repeat: no-repeat; background-size: 100%"> 
-    <nav style="background-color: #CB7B00; color: white;" class="navbar navbar-expand-md">
-      <a style="color: white;" class="navbar-brand" href="index.php"> Sunset </a>
+    <nav style="background-color: #CB7B00; color: white;" class="navbar navbar-expand-md"> 
+      <a style="color: white;" class="navbar-brand" href="index.php"> <img id="logo" class="bi me-1" width="45em" src="img/logo3.png"></img> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

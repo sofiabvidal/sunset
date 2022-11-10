@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
  
 require "conexao.php";
 require "cabecalho.php";
@@ -15,7 +15,11 @@ if ($result == true) {
 ?>
     <div class="alert alert-sucess" role="alert">
         <h4> Dados gravados com sucesso! </h4>
+        <a class="btn btn-sm btn-warning" href="listagemAutor.php">
+                        Voltar
+        </a>
     </div>
+    
 <?php
 } else {
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 $titulo_pagina = "Resultado da Pesquisa";
 
@@ -14,7 +14,8 @@ $stmt = $conn -> query($sql);
 $count = 0;
 ?>
 
-<div class="table-responsive">
+<br>
+<div class="table-responsive" style="background-color: #D9A658; border-color: #F8CF86; color: white; opacity: 0.9; border-color: #F8CF86; color: white; opacity: 0.9; border-radius: 20px; padding: 20px;">
 <table class="table table-striped ">
     <thead>
         <tr>

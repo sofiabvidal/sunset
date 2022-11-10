@@ -44,6 +44,9 @@ if ($result == true) {
 ?>
     <div class="alert alert-sucess" role="alert">
         <h4> Dados alterados com sucesso! </h4>
+        <a class="btn btn-sm btn-warning" href="listagemLivro.php">
+                        Voltar
+        </a>
     </div>
 <?php
 } else {

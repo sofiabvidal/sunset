@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 $titulo_pagina = "Login";
 require "cabecalho.php";

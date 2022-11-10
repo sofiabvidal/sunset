@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
  
 require "conexao.php";
 require "cabecalho.php";
