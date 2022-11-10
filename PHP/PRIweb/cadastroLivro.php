@@ -18,7 +18,7 @@ $result = $stmt -> execute([$isbn, $dtaPublicacao, $idioma, $tituloLivro, $local
 
 if ($result == true) {
 ?>
-    <div class="alert alert-sucess" role="alert">
+    <div class="alert alert-success" role="alert">
         <h4> Dados gravados com sucesso! </h4>
         <a class="btn btn-sm btn-warning" href="listagemLivro.php">
                         Voltar

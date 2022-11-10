@@ -14,6 +14,7 @@ $result = $sth->fetch(PDO::FETCH_ASSOC);
 if ($result['count'] > 0) {
 ?>
 
+<br>
  <div class="alert alert-danger" role="alert">
         <h4> Atenção! Existe <?php echo $result['count']; ?> livro(s) com este autor! Deseja continuar? </h4>
         <a class="btn btn-sm btn-danger" 

@@ -13,7 +13,7 @@ $result = $stmt -> execute([$nome, $idade, $tempoCarreira]);
 
 if ($result == true) {
 ?>
-    <div class="alert alert-sucess" role="alert">
+    <div class="alert alert-success" role="alert">
         <h4> Dados gravados com sucesso! </h4>
         <a class="btn btn-sm btn-warning" href="listagemAutor.php">
                         Voltar

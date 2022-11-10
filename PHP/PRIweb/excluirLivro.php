@@ -15,7 +15,7 @@ $result = $stmt -> execute([$idlivro]);
 
 if ($result == true && $result_livroAutor == true) {
 ?>
-    <div class="alert alert-sucess" role="alert">
+    <div class="alert alert-success" role="alert">
         <h4> Registro excluído com sucesso! </h4>
         <a class="btn btn-sm btn-warning" 
                     href="listagemLivro.php">
