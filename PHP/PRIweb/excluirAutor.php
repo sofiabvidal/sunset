@@ -16,6 +16,14 @@ $result = $stmt -> execute([$idautor]);
 if ($result == true) {
 ?>
     <div class="alert alert-success" role="alert">
+    <style>
+            .alert-success {
+                width:400px;
+                margin-top: 20px;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+        </style>
         <h4> Registro excluído com sucesso! </h4>
         <a class="btn btn-sm btn-warning" 
         href="listagemAutor.php">
