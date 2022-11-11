@@ -56,7 +56,7 @@ footer {
           ?>
           <li class="nav-item">
             <a href="logout.php">
-              <button type="button" class="btn btn-danger"> Log-out </button>
+              <button style="background-color: #D9A658; border-color: #F8CF86; color: white;" type="button" class="btn btn-danger"> Log-out </button>
             </a>
           </li>
           <?php 

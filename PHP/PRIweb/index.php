@@ -7,18 +7,45 @@ require "cabecalho.php";
 
 ?>
     <main role="main">
+        <div class="bibliotecaria">
+            <style>
+                main {
+                    width: 100%;
+                    display: flex; 
+                    justify-content: center;
+                    align-content: center;
+                    align-items: center; 
+                }
+                .bibliotecaria {
+                    background-color: #D9A658; 
+                    border-color: #F8CF86; 
+                    color: white;
+                    margin-top: 20px;
+                    margin-right: 20px;
+                    margin-left: 20px;
+                    box-shadow: 10px 10px 8px #888888;
+                    border-radius: 20px; 
+                    padding: 10px; 
+                    margin-top: 15%;
+                    width: 50%;
+                    display: flex; 
+                    justify-content: center;
+                    align-content: center;
+                    align-items: center;
+                }
+            </style>
         <?php 
         if($_SESSION['logado'] == true){
             $prontuario_bibliotecaria = $_SESSION['prontuario'];
             $sql = "select nome from bibliotecaria where prontuario = '$prontuario_bibliotecaria'";
             $stmt = $conn -> query($sql);
-
             while ($row = $stmt->fetch()) {
                 $nome = $row['nome'];
-                echo "<h1> Bem-vindo(a) $nome </h1>";
+                echo "<h1> <center> Bem-vinda $nome! </center> </h1>";
             }
         }
         ?>
+        </div>
     </main>
 <?php
 

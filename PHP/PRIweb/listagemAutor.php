@@ -59,11 +59,25 @@ if($_SESSION['logado'] == true):
 </table>
 </div>
 
+<a href="formularioAutor.php">
+        <style>
+            .autor {
+                width: 200px;
+                margin-top: 20px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        </style>
+    <button style="background-color: #D9A658; border-color: #F8CF86; color: white;" type="button" class="btn btn-danger autor"> Cadastrar novo Autor </button>
+</a>
+
 <?php
 
 else: 
 
 ?>
+
+<br>
 <div class="table-responsive" style="background-color: #D9A658; border-color: #F8CF86; color: white; opacity: 0.9; border-radius: 20px; padding: 20px;">
 <table class="table table-striped ">
     <thead>
