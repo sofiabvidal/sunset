@@ -8,21 +8,12 @@ require "conexao.php";
 
 <div class="row justify-content-md-center">
         <div class="col-3">
-        <br><br><br>
+        <br><br><br><br><br><br>
 <form action="login.php" method="POST" style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: -15%;">
     <h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Login </h1>
-    
-    <div class="form-floating mb-2">
-        <label for="floatingInput"> Nome </label> 
-        <input type="nome" class="form-control" name="nome" id="floatingInput" placeholder="Insira seu nome">
-    </div>
     <div class="form-floating mb-2">
         <label for="floatingInput"> Prontuário </label> 
         <input type="prontuario" class="form-control" name="prontuario" id="floatingInput" placeholder="Insira seu prontuário">
-    </div>
-    <div class="form-floating mb-2">
-        <label for="floatingInput"> E-mail </label> 
-        <input type="email" class="form-control" name="email" id="floatingInput" placeholder="Insira seu e-mail">
     </div>
     <div class="form-floating mb-4">
         <label for="floatingPassword"> Senha </label> 

@@ -7,6 +7,7 @@ require "conexao.php";
 $sql = "select idautor, nome, idade, tempocarreira from autor order by idautor";
 $stmt = $conn -> query($sql);
 
+if($_SESSION['logado'] == true):
 ?>
 
 <br>
@@ -60,6 +61,43 @@ $stmt = $conn -> query($sql);
 
 <?php
 
+else: 
+
+?>
+<div class="table-responsive" style="background-color: #D9A658; border-color: #F8CF86; color: white; opacity: 0.9; border-radius: 20px; padding: 20px;">
+<table class="table table-striped ">
+    <thead>
+        <tr>
+
+            <th scope="col" style="width: 25%;">ID</th>
+            <th scope="col" style="width: 25%;">Nome</th>
+            <th scope="col" style="width: 25%;">Idade</th>
+            <th scope="col" style="width: 25%;">Tempo de Carreira</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            while ($row = $stmt->fetch()) {
+            ?>
+        <tr>
+            <td><?= $row['idautor'] ?></td>
+            <td><?= $row['nome'] ?></td>
+            <td><?= $row['idade'] ?></td>
+            <td><?= $row['tempocarreira'] ?></td>
+        </tr>
+
+    <?php
+            }
+    ?>
+
+    </tbody>
+</table>
+</div>
+
+<?php
+
+        endif;
 require "rodape.php";
 
 ?>

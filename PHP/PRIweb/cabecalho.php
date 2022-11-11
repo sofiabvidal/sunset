@@ -27,7 +27,7 @@ footer {
 }
 </style> 
   </head>
-<?php //session_start(); ?>
+<?php error_reporting(E_ERROR | E_PARSE); ?>
   <body style="background-image: url(img/fundo2.png); background-repeat: no-repeat; background-size: 100%"> 
     <nav style="background-color: #CB7B00; color: white;" class="navbar navbar-expand-md"> 
       <a style="color: white;" class="navbar-brand" href="index.php"> <img id="logo" class="bi me-1" width="45em" src="img/logo3.png"></img> </a>
@@ -43,9 +43,26 @@ footer {
           </li>
           <a style="color: white;" class="nav-link" href="listagemLivro.php"> Livros </a>
           </li>
+
+          <?php 
+            if($_SESSION['logado'] == false):
+          ?>
           <li class="nav-item">
             <a style="color: white;" class="nav-link disabled" href="formularioLogin.php"> Área da Bibliotecária </a>
           </li>
+          <?php 
+            endif;
+            if($_SESSION['logado'] == true):
+          ?>
+          <li class="nav-item">
+            <a href="logout.php">
+              <button type="button" class="btn btn-danger"> Log-out </button>
+            </a>
+          </li>
+          <?php 
+            endif;
+          ?>
+
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="pesquisa.php" method="POST">
