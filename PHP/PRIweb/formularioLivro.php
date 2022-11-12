@@ -47,6 +47,22 @@ require "cabecalho.php";
     <input type="text" class="form-control" id="editoraLivro" name="editoraLivro" required>
 </div>
 
+<div class="form-floating mb-2">
+    <label for="listAutor" class="form-label"> Autor </label>
+    <select class="form-select mb-5" aria-label="Defaul select exmaple" id="listAutor" name="listAutor">
+        <option value="" selected> Selecione um autor </option>
+        <?php
+        $sql = "select idautor, nome, idade, tempocarreira from autor order by idautor";
+        $stmt = $conn -> query($sql);
+
+        while ($row = $stmt->fetch()) {
+            echo "<option value=" . $row['idautor'] . ">" . $row['nome'] . "</option>";
+        }
+        ?>
+    </select>
+
+</div>
+
 <button type="submit" class="btn btn-primary" style="background-color: #D9A658; border-color: #F8CF86; color: white;"> Gravar </button>
 <button type="reset" class="btn btn-danger"> Cancelar </button>
 

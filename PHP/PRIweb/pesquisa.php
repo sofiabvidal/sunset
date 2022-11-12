@@ -12,6 +12,7 @@ $sql = "select livro.idlivro, livro.isbn, livro.dtapublicacao, livro.idioma, liv
 $stmt = $conn -> query($sql);
 
 $count = 0;
+if($_SESSION['logado'] == true):
 ?>
 
 <br>
@@ -81,6 +82,63 @@ $count = 0;
 </div>
 
 <?php
+
+else:
+
+?>
+
+<br>
+<div class="table-responsive" style="background-color: #D9A658; border-color: #F8CF86; color: white; opacity: 0.9; border-color: #F8CF86; color: white; opacity: 0.9; border-radius: 20px; padding: 20px;">
+<table class="table table-striped ">
+    <thead>
+        <tr>
+
+            <th scope="col" style="width: 10%;">ID</th>
+            <th scope="col" style="width: 10%;">ISBN</th>
+            <th scope="col" style="width: 10%;">Data de Publicação</th>
+            <th scope="col" style="width: 10%;">Idioma</th>
+            <th scope="col" style="width: 10%;">Título</th>
+            <th scope="col" style="width: 10%;">Local de Publicação</th>
+            <th scope="col" style="width: 10%;">Sinopse</th>
+            <th scope="col" style="width: 10%;">Gênero</th>
+            <th scope="col" style="width: 10%;">Editora</th>
+            <th scope="col" style="width: 10%;">Autor</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            while ($row = $stmt->fetch()) {
+                $count++;
+            ?>
+        <tr>
+            <td><?= $row['idlivro'] ?></td>
+            <td><?= $row['isbn'] ?></td>
+            <td><?= $row['dtapublicacao'] ?></td>
+            <td><?= $row['idioma'] ?></td>
+            <td><?= $row['titulolivro'] ?></td>
+            <td><?= $row['localpublicacao'] ?></td>
+            <td><?= $row['sinopse'] ?></td>
+            <td><?= $row['temalivro'] ?></td>
+            <td><?= $row['editoralivro'] ?></td>
+            <td><?= $row['nome'] ?></td>
+        </tr>
+
+    <?php
+            }
+
+            if ($count == 0){
+                echo "<script>alert('Não foi encontrado nenhum livro na base de dados para sua pesquisa!')</script>";
+            }
+    ?>
+
+    </tbody>
+</table>
+</div>
+
+<?php
+
+ endif;
 
 require "rodape.php";
 

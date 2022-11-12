@@ -94,16 +94,16 @@ else:
     <thead>
         <tr>
 
-            <th scope="col" style="width: 5%;">ID</th>
-            <th scope="col" style="width: 8%;">ISBN</th>
-            <th scope="col" style="width: 8%;">Data de Publicação</th>
-            <th scope="col" style="width: 8%;">Idioma</th>
-            <th scope="col" style="width: 9%;">Título</th>
-            <th scope="col" style="width: 8%;">Local de Publicação</th>
-            <th scope="col" style="width: 11%;">Sinopse</th>
-            <th scope="col" style="width: 8%;">Gênero</th>
-            <th scope="col" style="width: 8%;">Editora</th>
-            <th scope="col" style="width: 9%;">Autor</th>
+            <th scope="col" style="width: 10%;">ID</th>
+            <th scope="col" style="width: 10%;">ISBN</th>
+            <th scope="col" style="width: 10%;">Data de Publicação</th>
+            <th scope="col" style="width: 10%;">Idioma</th>
+            <th scope="col" style="width: 10%;">Título</th>
+            <th scope="col" style="width: 10%;">Local de Publicação</th>
+            <th scope="col" style="width: 10%;">Sinopse</th>
+            <th scope="col" style="width: 10%;">Gênero</th>
+            <th scope="col" style="width: 10%;">Editora</th>
+            <th scope="col" style="width: 10%;">Autor</th>
 
         </tr>
     </thead>

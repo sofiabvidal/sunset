@@ -1,4 +1,4 @@
-<footer class="container">
+<footer class="container" style="background-color: #fff2de;">
       <p>&copy; Sunset </p>
     </footer>
 

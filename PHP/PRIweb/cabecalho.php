@@ -28,7 +28,7 @@ footer {
 </style> 
   </head>
 <?php error_reporting(E_ERROR | E_PARSE); ?>
-  <body style="background-image: url(img/fundo2.png); background-repeat: no-repeat; background-size: 100%"> 
+  <body style="background-color: #fff2de; background-image: url(img/fundo2.png); background-repeat: no-repeat; background-size: 100%"> 
     <nav style="background-color: #CB7B00; color: white;" class="navbar navbar-expand-md"> 
       <a style="color: white;" class="navbar-brand" href="index.php"> <img id="logo" class="bi me-1" width="45em" src="img/logo3.png"></img> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
