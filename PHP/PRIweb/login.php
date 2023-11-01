@@ -14,8 +14,10 @@ $stmt = $conn -> query($sql);
 
 $quantidade = $stmt->rowCount();
 
-
 if($quantidade > 0){
+    while ($row = $stmt->fetch()) {
+        $_SESSION['idbibliotecaria'] = $row['idbibliotecaria'];
+    }
     $_SESSION['prontuario'] = $prontuario;
     $_SESSION['logado'] = true;
 

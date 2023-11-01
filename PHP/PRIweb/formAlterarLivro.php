@@ -28,15 +28,16 @@ while ($row = $stmt->fetch()) {
 
 <div class="row justify-content-md-center" style="width: 100%; display: flex;">
 <div class="col-7">
-<form action="alterarLivro.php" method="POST" style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: 5%;">
-<h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Edição de livro </h1>
+<div style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: 5%;">
+<form action="alterarLivro.php" method="POST">
+<h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Edição de Livro </h1>
 <div class="form-floating mb-2">
     <label for="isbn" class="form-label"> ISBN </label>
     <input type="number" class="form-control" id="isbn" name="isbn" value="<?php echo $isbn; ?>" required>
 </div>
 <div class="form-floating mb-2">
     <label for="dtaPublicacao" class="form-label"> Data de Publicação </label>
-    <input type="number" class="form-control" id="dtapublicacao" name="dtapublicacao" placeholder="DD/MM/YYYY" onfocus="(this.type='date')" value="<?php echo $dtapublicacao; ?>" required>
+    <input type="date" class="form-control" id="dtapublicacao" name="dtapublicacao" value="<?php echo $dtapublicacao; ?>" required>
 </div>
 <div class="form-floating mb-2">
     <label for="idioma" class="form-label"> Idioma </label>
@@ -63,12 +64,11 @@ while ($row = $stmt->fetch()) {
     <input type="text" class="form-control" id="editoralivro" name="editoralivro" value="<?php echo $editoraLivro; ?>" required>
 </div>
 
-<button type="submit" class="btn btn-primary" style="background-color: #D9A658; border-color: #F8CF86; color: white;"> Gravar </button>
-<button type="reset" class="btn btn-danger"> Cancelar </button>
-
-</div>
-
+<button type="submit" class="btn btn-primary justify-content-end float-right" style="background-color: #D9A658; border-color: #F8CF86; color: white;"> Gravar </button>
 </form>
+<a href="listagemLivro.php"> <button type="reset" class="btn btn-danger"> Cancelar </button> </a>
+</div>
+</div>
 </div>
 </div>
 

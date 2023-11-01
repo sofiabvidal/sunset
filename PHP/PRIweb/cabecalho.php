@@ -41,18 +41,37 @@ footer {
           <li class="nav-item">
             <a style="color: white;" class="nav-link" href="listagemAutor.php"> Autores </a>
           </li>
+          <li class="nav-item">
           <a style="color: white;" class="nav-link" href="listagemLivro.php"> Livros </a>
+          </li>
+          <li class="nav-item">
+          <a style="color: white;" class="nav-link" href="listagemExemplar.php"> Exemplares </a>
           </li>
 
           <?php 
-            if($_SESSION['logado'] == false):
+            if($_SESSION['logado'] == false && $_SESSION['logado_usuario'] == false):
           ?>
           <li class="nav-item">
             <a style="color: white;" class="nav-link disabled" href="formularioLogin.php"> Área da Bibliotecária </a>
           </li>
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link disabled" href="formLoginUsuario.php"> Área do Usuário </a>
+          </li>
           <?php 
             endif;
-            if($_SESSION['logado'] == true):
+            if($_SESSION['logado'] == true || $_SESSION['logado_usuario']):
+          ?>
+          <?php 
+            if($_SESSION['logado'] ==  true):
+          ?>
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link disabled" href="listagemUsuario.php"> Usuários </a>
+          </li>
+          <li class="nav-item">
+            <a style="color: white;" class="nav-link disabled" href="listagemEmprestimo.php"> Empréstimos </a>
+          </li>
+          <?php 
+            endif;
           ?>
           <li class="nav-item">
             <a href="logout.php">
@@ -62,8 +81,6 @@ footer {
           <?php 
             endif;
           ?>
-
-          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="pesquisa.php" method="POST">
           <input class="form-control mr-sm-2" type="text" placeholder="Pesquisa" aria-label="Search" id="texto" name="texto">

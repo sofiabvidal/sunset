@@ -10,8 +10,9 @@ require "cabecalho.php";
 
 <div class="row justify-content-md-center" style="width: 100%; display: flex;">
 <div class="col-7">
-<form action="cadastroLivro.php" method="POST" style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: 5%;">
-<h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Cadastro de livro </h1>
+<div style="box-shadow: 10px 10px 8px #888888; background-color: white; border-radius: 20px; padding: 20px; margin-top: 5%;">
+<form action="cadastroLivro.php" method="POST">
+<h1 class="h3 mb-3 fw-normal" style="text-align: center;"> Cadastro de Livro </h1>
 
 
 <div class="form-floating mb-2">
@@ -49,7 +50,7 @@ require "cabecalho.php";
 
 <div class="form-floating mb-2">
     <label for="listAutor" class="form-label"> Autor </label>
-    <select class="form-select mb-5" aria-label="Defaul select exmaple" id="listAutor" name="listAutor">
+    <select class="form-select mb-5 form-control" aria-label="Defaul select example" id="listAutor" name="listAutor">
         <option value="" selected> Selecione um autor </option>
         <?php
         $sql = "select idautor, nome, idade, tempocarreira from autor order by idautor";
@@ -63,14 +64,13 @@ require "cabecalho.php";
 
 </div>
 
-<button type="submit" class="btn btn-primary" style="background-color: #D9A658; border-color: #F8CF86; color: white;"> Gravar </button>
-<button type="reset" class="btn btn-danger"> Cancelar </button>
-
-</div>
-</div>
-</div>
-
+<button type="submit" class="btn btn-primary justify-content-end float-right" style="background-color: #D9A658; border-color: #F8CF86; color: white;"> Gravar </button>
 </form>
+<a href="listagemLivro.php"><button class="btn btn-danger"> Cancelar </button></a>
+</div>
+</div>
+</div>
+</div>
 
 <?php
 

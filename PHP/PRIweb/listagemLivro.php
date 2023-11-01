@@ -37,7 +37,7 @@ if($_SESSION['logado'] == true):
         <tr>
             <td><?= $row['idlivro'] ?></td>
             <td><?= $row['isbn'] ?></td>
-            <td><?= $row['dtapublicacao'] ?></td>
+            <td><?= date("d/m/Y", strtotime($row['dtapublicacao'])) ?></td>
             <td><?= $row['idioma'] ?></td>
             <td><?= $row['titulolivro'] ?></td>
             <td><?= $row['localpublicacao'] ?></td>
