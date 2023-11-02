@@ -8,7 +8,8 @@ $sql = "select idemprestimo,
                 titulolivro,
                 prontuariousuario,
                 dtaemprestimo,
-                dtadevolucao
+                dtadevolucao,
+                emprestimo.idexemplar
                 from emprestimo inner join usuario
                 on emprestimo.prontuariousuario = usuario.prontuario
                 inner join exemplar
@@ -46,12 +47,27 @@ if($_SESSION['logado'] == true):
             <td><?= date("d/m/Y", strtotime($row['dtaemprestimo'])) ?></td>
             <td><?= date("d/m/Y", strtotime($row['dtadevolucao'])) ?></td>
             <td>
+                <?php
+                $status_emprestimo = true;
+                $sql_validacao = "select statusemprestimo from emprestimo where idexemplar = " . $row['idexemplar'] . " order by idemprestimo desc limit 1";
+                $stmt = $conn -> prepare($sql_validacao);
+                $stmt -> execute();
+                $row_validacao = $stmt->fetch();
+
+                if (isset($row_validacao['statusemprestimo'])){
+                    $status_emprestimo = $row_validacao['statusemprestimo'];
+                }
+                if ($row_validacao['statusemprestimo'] == true):
+                ?>
                 <a class="btn btn-sm btn-danger" 
                 href="excluirEmprestimo.php?idemprestimo=<?= $row['idemprestimo']; ?>"
-                onclick="if(!confirm('Tem certeza que deseja excluir?')) return false;">
+                onclick="if(!confirm('Tem certeza que deseja finalizar?')) return false;">
                     <span data-feather="trash-2"> </span>
-                    Excluir
+                    Finalizar
                 </a>
+                <?php
+                endif;
+                ?>
             </td>
         </tr>
 

@@ -10,9 +10,9 @@ $dtaemprestimo = filter_input(INPUT_POST, "dtaemprestimo", FILTER_SANITIZE_SPECI
 $dtadevolucao = filter_input(INPUT_POST, "dtadevolucao", FILTER_SANITIZE_SPECIAL_CHARS);
 $listExemplar = filter_input(INPUT_POST, "listExemplar", FILTER_SANITIZE_NUMBER_INT);
 
-$sql = "insert into emprestimo (prontuariousuario, dtaemprestimo, dtadevolucao, idexemplar) values (?, ?, ?, ?)";
+$sql = "insert into emprestimo (prontuariousuario, dtaemprestimo, dtadevolucao, idexemplar, statusemprestimo) values (?, ?, ?, ?, ?)";
 $stmt = $conn -> prepare($sql);
-$result = $stmt -> execute([strtolower($prontuario), $dtaemprestimo, $dtadevolucao, $listExemplar]);
+$result = $stmt -> execute([strtolower($prontuario), $dtaemprestimo, $dtadevolucao, $listExemplar, true]);
 
 if ($result == true) {
 ?>

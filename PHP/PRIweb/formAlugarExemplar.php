@@ -11,6 +11,17 @@ $hoje = date("Y-m-d");
 $prontuario = $_SESSION["prontuario"];
 $idexemplar = filter_input(INPUT_GET, "idexemplar", FILTER_SANITIZE_SPECIAL_CHARS);
 
+$sql_validacao = "select statusemprestimo from emprestimo where idexemplar = $idexemplar order by dtaemprestimo desc limit 1";
+$stmt = $conn -> prepare($sql_validacao);
+$stmt -> execute();
+$row_validacao = $stmt->fetch();
+if (isset($row_validacao["statusemprestimo"])) {
+    if ($row_validacao["statusemprestimo"] == true) {
+        header("Location: listagemExemplar.php");
+        exit();
+    }
+}
+
 ?>
 
 <div class="row justify-content-md-center" style="width: 100%; display: flex;">

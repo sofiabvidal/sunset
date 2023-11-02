@@ -134,11 +134,26 @@ elseif($_SESSION['logado_usuario'] == true):
             <td><?= $row['editoralivro'] ?></td>
             <td><?= $row['autornome'] ?></td>
             <td>
+                <?php
+                $status_emprestimo = false;
+                $sql_validacao = "select statusemprestimo from emprestimo where idexemplar = " . $row['idexemplar'] . " order by idemprestimo desc limit 1";
+                $stmt = $conn -> prepare($sql_validacao);
+                $stmt -> execute();
+                $row_validacao = $stmt->fetch();
+
+                if (isset($row_validacao['statusemprestimo'])){
+                    $status_emprestimo = $row_validacao['statusemprestimo'];
+                }
+                if ($row_validacao['statusemprestimo'] == false):
+                ?>
                 <a class="btn btn-sm btn-danger"
                     href="formAlugarExemplar.php?idexemplar=<?= $row['idexemplar']; ?>">
                         <span data-feather="edit"></span>
                         Realizar empréstimo
                 </a>
+                <?php
+                endif;
+                ?>
             </td>
         </tr>
   

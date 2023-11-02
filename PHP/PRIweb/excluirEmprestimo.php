@@ -5,7 +5,7 @@ require "cabecalho.php";
 
 $idemprestimo = filter_input(INPUT_GET, "idemprestimo", FILTER_SANITIZE_NUMBER_INT);
 
-$sql = "delete from emprestimo where idemprestimo = ?";
+$sql = "update emprestimo set statusemprestimo = false where idemprestimo = ?";
 $stmt = $conn -> prepare($sql);
 $result = $stmt -> execute([$idemprestimo]);
 
@@ -20,7 +20,7 @@ if ($result == true) {
                 margin-left: 20px;
             }
         </style>
-        <h4> Registro excluído com sucesso! </h4>
+        <h4> Registro desativado com sucesso! </h4>
         <a class="btn btn-sm btn-warning" 
                     href="listagemEmprestimo.php">
                         Voltar
